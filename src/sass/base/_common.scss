@@ -1,3 +1,5 @@
+@import '../utils/breakpoints';
+
 html {
   box-sizing: border-box;
 }
@@ -19,18 +21,6 @@ p {
   margin-bottom: 0;
 }
 
-.list {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.link {
-  text-decoration: none;
-  color: inherit;
-}
-
 body {
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
@@ -39,7 +29,7 @@ body {
   line-height: 1.25;
   color: var(--white-text-color);
 
-  @media screen and (max-width: $table) {
+  @media screen and (max-width: $tablet) {
     font-size: 14px;
     line-height: 1.21;
   }
@@ -53,4 +43,35 @@ img {
 
 .title {
   color: var(--accent-color);
+}
+
+.list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (min-width: $mobile) {
+    width: 280px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 610px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 1050px;
+    padding-right: 45px;
+    padding-left: 45px;
+  }
 }
