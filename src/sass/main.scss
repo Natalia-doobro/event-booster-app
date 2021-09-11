@@ -4,11 +4,15 @@
 // Добавляем так => @import './example';
 
 /*Базовые стили */
+@import './utils/breakpoints';
+@import './base/common';
+@import './utils/fonts';
+@import './utils/variables';
 
 /*Шапка приложения*/
 
 /*main (контент страницы)*/
 
-/*foote*/
+/*footer*/
 
 /*модальное окно */
