@@ -1,6 +1,5 @@
 import fetchEventsByName from './api_service';
 import {eventInput, countryInput, gallery} from './refs';
-import '../node_modules/material-design-icons/iconfont/material-icons.css';
 import {createGalleryMarkup} from './create-markup'
 
 eventInput.addEventListener('input', onEventSearch);

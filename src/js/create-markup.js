@@ -1,4 +1,4 @@
-import createGalleryMarkup from './templates/gallery.hbs';
+// import createGalleryMarkup from './templates/gallery.hbs';
 
 export function createGalleryMarkup(events) {
     const markUp = eventsGallery(events);
