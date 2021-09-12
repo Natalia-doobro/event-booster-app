@@ -26,14 +26,11 @@ body {
   font-size: 16px;
   line-height: 1.25;
   color: var(--white-text-color);
-
+  background-color: var(--dark-text-color);
   @media screen and (max-width: $tablet) {
     font-size: 14px;
     line-height: 1.21;
   }
-}
-.body-bg {
-  background-color: #0e0e0e;
 }
 
 img {
