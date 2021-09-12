@@ -1,0 +1,12 @@
+{{#each this}}
+  <li class='event-card' id={{id}}>
+
+    <img class='event-image' src='{{images.3.url}}' alt='{{name}}' width=350 />
+
+    <h2 class='event-title'>{{name}}</h2>
+    <p class='event-date'>{{dates.start.localDate}}</p>
+    <p class="event-place">
+        <a href="{{_embedded.venues.0.location.latitude}}" class="link" target="_blank"> <span class="material-icons cards-icons">room</span> {{_embedded.venues.0.name}}</a>
+    </p>
+  </li>
+{{/each}}
