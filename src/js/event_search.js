@@ -22,6 +22,7 @@ async function onEventSearch(e) {
 // =======================================
 
 countryInput.addEventListener('input', onEventSearchCountries);
+
 async function onEventSearchCountries(e) {
   const dataCountries = await fetchEvents(e);
   console.log(e);
