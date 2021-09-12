@@ -11,4 +11,5 @@ export default async function fetchEventsByName(query, page) {
     `events.json?size=20&keyword=${query}&page=${page}&apikey=1twKLyrauG3OZrFZiN9ApTE1ANWFyZTo`,
   );
   return events;
+
 }

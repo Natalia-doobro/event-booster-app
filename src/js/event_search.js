@@ -1,6 +1,7 @@
 import fetchEventsByName from './api_service';
-import { eventInput, countryInput, gallery } from './refs';
-import { createGalleryMarkup } from './create-markup';
+import {eventInput, countryInput, gallery} from './refs';
+import {createGalleryMarkup} from './create-markup'
+
 
 eventInput.addEventListener('input', onEventSearch);
 
