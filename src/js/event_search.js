@@ -1,7 +1,6 @@
 import fetchEventsByName from './api_service';
-import {eventInput, countryInput, gallery} from './refs';
-import {createGalleryMarkup} from './create-markup'
-
+import { eventInput, countryInput, gallery } from './refs';
+import { createGalleryMarkup } from './create-markup';
 
 eventInput.addEventListener('input', onEventSearch);
 
@@ -18,13 +17,4 @@ async function onEventSearch(e) {
   state.query = eventInput.value.trim();
   const data = await fetchEvents(state.query, state.page);
   createGalleryMarkup(data);
-}
-
-// =======================================
-
-countryInput.addEventListener('input', onEventSearchCountries);
-
-async function onEventSearchCountries(e) {
-  const dataCountries = await fetchEvents(e);
-  console.log(e);
 }
