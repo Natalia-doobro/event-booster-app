@@ -4,7 +4,7 @@
     background-position: center;
     background-size: cover;
     
-    @media screen and (min-width: $mobile) and (max-width: $mobile-max) {        
+    @media screen and (max-width: $mobile-max) {        
         background-image: linear-gradient(
         to right,
         rgba(11, 11, 11, 0.5),
@@ -30,10 +30,7 @@
       ),
       url('../images/tablet_pic.png');
       height: 364px;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    
+          
         @media (min-device-pixel-ratio: 2),
           (-webkit-min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
@@ -51,10 +48,7 @@
       ),
       url('../images/desktop_pic.png');
       height: 466px;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    
+         
         @media (min-device-pixel-ratio: 2),
           (-webkit-min-device-pixel-ratio: 2),
           (min-resolution: 192dpi),
