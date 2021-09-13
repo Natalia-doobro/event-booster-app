@@ -6,7 +6,7 @@
     <h2 class='event-title'>{{name}}</h2>
     <p class='event-date'>{{dates.start.localDate}}</p>
     <p class="event-place">
-        <a href="{{_embedded.venues.0.location.latitude}}" class="link" target="_blank"> <span class="material-icons cards-icons">room</span> {{_embedded.venues.0.name}}</a>
+        <a href="https://maps.google.com?saddr=Current+Location&daddr={{_embedded.venues.0.location.latitude}},{{_embedded.venues.0.location.longitude}}" class="link" target="_blank"> <span class="material-icons md-12 cards-icons">room</span> {{_embedded.venues.0.name}}</a>
     </p>
   </li>
 {{/each}}
