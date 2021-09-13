@@ -65,7 +65,7 @@ module.exports=require("./lib/axios");
 },{"./lib/axios":"nUiQ"}],"Irsp":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.fetchEventsByName=a,exports.fetchPopularEvents=s;var e=t(require("axios"));function t(e){return e&&e.__esModule?e:{default:e}}async function a(t,a,s){const{data:{_embedded:{events:r}}}=await e.default.get(`${t}.json?size=20&keyword=${a}&page=${s}&apikey=1twKLyrauG3OZrFZiN9ApTE1ANWFyZTo`);return r}async function s(t,a){const{data:{_embedded:{events:s}}}=await e.default.get(`events.json?size=20&page=${t}&sort=random&marketId=${a}&apikey=1twKLyrauG3OZrFZiN9ApTE1ANWFyZTo`);return s}e.default.defaults.baseURL="https://app.ticketmaster.com/discovery/v2/";
 },{"axios":"dZBD"}],"VyiV":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.gallery=exports.countryInput=exports.eventInput=void 0;const e={eventInput:document.querySelector(".search-event-area"),countryInput:document.querySelector(".search-country-area"),gallery:document.querySelector(".gallery")},{eventInput:t,countryInput:r,gallery:n}=e;exports.gallery=n,exports.countryInput=r,exports.eventInput=t;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.gallery=exports.countryInput=exports.eventInput=void 0;const e={eventInput:document.querySelector(".search-event-area"),countryInput:document.querySelector(".search-country-area"),gallery:document.querySelector(".gallery"),closeModal:document.querySelector(".close-modal"),modalOverlay:document.querySelector(".modal-overlay"),modalImg:document.querySelector(".img-card_image"),smallModalImg:document.querySelector(".img-card_image_small"),modalGallery:document.querySelector(".modal_gallery")},{eventInput:r,countryInput:t,gallery:o}=e;exports.gallery=o,exports.countryInput=t,exports.eventInput=r;
 },{}],"pAws":[function(require,module,exports) {
 var define;
 var global = arguments[3];
@@ -82,4 +82,4 @@ var t=arguments[3],e="Expected a function",n=NaN,r="[object Symbol]",i=/^\s+|\s+
 },{"./api_service":"Irsp","./refs":"VyiV","./create-markup":"oWe0","lodash.debounce":"PZFh"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=s(require("./js/event_search"));function s(e){return e&&e.__esModule?e:{default:e}}
 },{"./sass/main.scss":"clu1","./js/event_search":"dLrb"}]},{},["Focm"], null)
-//# sourceMappingURL=/event-booster-app/src.c1fd2586.js.map
+//# sourceMappingURL=/event-booster-app/src.c282aab5.js.map
