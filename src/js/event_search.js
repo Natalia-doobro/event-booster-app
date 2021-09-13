@@ -14,7 +14,6 @@ const state = {
 };
 
 async function onLoadPage() {
-  console.log('hello');
     state.page = 1;
     const data = await fetchPopularEvents( state.page, state.country);
     createGalleryMarkup(data);
