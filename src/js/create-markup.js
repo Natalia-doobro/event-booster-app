@@ -1,7 +1,6 @@
-// import createGalleryMarkup from './templates/gallery.hbs';
+import { gallery } from './refs';
 
 export function createGalleryMarkup(events) {
-    const markUp = eventsGallery(events);
-    gallery.insertAdjacentHTML('beforeend', markUp);
-  }
-  
+  const markUp = galleryMarkUp(events);
+  gallery.insertAdjacentHTML('beforeend', markUp);
+}

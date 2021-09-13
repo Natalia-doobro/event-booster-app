@@ -1,14 +1,14 @@
-import fetchEventsByName from './api_service';
+import { fetchEventsByName } from './api_service';
 import {eventInput, countryInput, gallery} from './refs';
 import {createGalleryMarkup} from './create-markup'
 
-eventInput.addEventListener('input', onEventSearch);
+eventInput.addEventListener('input', fetchEventsByName);
 
 const state = {
     page: 1,
     query: '',
   };
-  
+
   async function onEventSearch(e) {
     state.page = 1;
     // if (!e.currentTarget.elements.query.value.trim()) {
