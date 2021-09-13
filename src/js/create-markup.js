@@ -1,4 +1,4 @@
-import galleryMarkUp from './templation/gallery.hbs';
+import galleryMarkUp from '../templation/gallery.hbs';
 import {eventInput, countryInput, gallery} from './refs';
 
 export function createGalleryMarkup(events) {
