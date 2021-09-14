@@ -6,3 +6,7 @@ export function createGalleryMarkup(events) {
     gallery.insertAdjacentHTML('beforeend', markUp);
   }
   
+
+  export function clearGalleryMarkup() {  
+    gallery.innerHTML = '';
+  } 
