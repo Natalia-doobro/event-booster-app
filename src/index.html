@@ -22,6 +22,7 @@
       rel="stylesheet"
       type="text/css"
     />
+    <link href="../node_modules/tui-pagination/dist/tui-pagination.min.css" rel="stylesheet" />
   </head>
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
@@ -32,14 +33,17 @@
     <!-- main (контент страницы) -->
     <div class="container container-border">
       <include src="./partials/gallery-list.html"></include>
+      <include src="./partials/pagination.html"></include>
 
       <!-- footer -->
 
       <include src="./partials/footer.html"></include>
     </div>
     <!-- модальное окно -->
+    <include src="./partials/modal.html"></include>
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
