@@ -1,18 +1,19 @@
-<h2>INFO</h2>
-<p></p>
-<h2>WHEN</h2>
-<p></p>
-<p></p>
-<h2>WHO</h2>
-<p></p>
-<h2>PRICES</h2>
-<span class='material-icons'>
-            qr_code
-        </span>
-<p></p>
-<button type='button'>BUY TICKETS</button>
-<span class='material-icons'>
-            qr_code
-        </span>
-<p></p>
-<button type='button'>BUY TICKETS</button>
+<h2 class='modal-title'>INFO</h2>
+<p class='modal-text'>{{info}}</p>
+<h2 class='modal-title'>WHEN</h2>
+<p class='modal-text'>{{dates.start.localDate}}</p>
+<p class='modal-text'>{{dates.start.localTime}} ({{dates.timezone}})</p>
+<h2 class='modal-tittle'>WHERE</h2>
+<p class='modal-text'>{{dates.timezone}}</p>
+<p class='modal-text'>{{_embedded.venues.0.address.line1}}</p>
+<h2 class='modal-title'>WHO</h2>
+<p class='modal-text'>{{name}}</p>
+<h2 class='modal-title'>PRICES</h2>
+<span class='material-icons'>qr_code</span>
+<p class='modal-text'>
+    {{priceRanges.0.min}}-{{priceRanges.0.max}} {{priceRanges.0.currency}}</p>
+<button type='button' class='modal_button'>BUY TICKETS</button>
+<span class='material-icons'>qr_code</span>
+<p class='modal-text'>
+    {{priceRanges.0.min}}-{{priceRanges.0.max}} {{priceRanges.0.currency}}</p>
+<button type='button' class='modal_button'>BUY TICKETS</button>
