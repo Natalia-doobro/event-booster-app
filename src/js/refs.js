@@ -7,7 +7,7 @@ const refs = {
   modalImg: document.querySelector('.img-card_image'),
   smallModalImg: document.querySelector('.img-card_image_small'),
   modalGallery: document.querySelector('.modal_gallery'),
-  pagination: document.querySelector('#tui-pagination-container')
+  pagination: document.querySelector('#tui-pagination-container'),
   modal: document.querySelector(".modal"),
 };
 
