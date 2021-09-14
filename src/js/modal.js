@@ -1,27 +1,29 @@
-import {refs} from "/js/refs"
+import { closeMdl, gallery, modal, modalImg, modalOverlay } from './refs';
 
-refs.gallery.addEventListener("click", openModal)
-refs.closeModal.addEventListener("click", closeModal)
-refs.modalOverlay.addEventListener("click", closeModalByOverlay)
+gallery.addEventListener('click', openModal);
+closeMdl.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', closeModalByOverlay);
+
+
 
 export function openModal(e) {
-  if (e.target.classList.contains("main-img")) {
-    refs.modal.classList.add("is-open")
-    refs.modalImg.src = e.target.parentNode.parentNode.dataset.url;
+  if (e.target.classList.contains('event-image')) {
+    modal.classList.add('is-open');
+    modalImg.src = e.target.parentNode.parentNode.dataset.url;
   }
 }
 
 export function closeModal(el) {
-  el.preventDefault()
-  refs.modal.classList.remove("is-open")
-  refs.modalImg.src = "";
+  el.preventDefault();
+  modal.classList.remove('is-open');
+  modalImg.src = '';
 
 }
 
 export function closeModalByOverlay(el) {
-  el.preventDefault()
-  refs.modal.classList.remove("is-open")
-  refs.modalImg.src = "";
+  el.preventDefault();
+  modal.classList.remove('is-open');
+  modalImg.src = '';
 
 
 }
