@@ -9,5 +9,7 @@ export async function fetchEventsByName(target, query, page){
 
 export async function fetchPopularEvents(page, country){
   const {data: {_embedded: {events}}} = await axios.get(`events.json?size=20&page=${page}&sort=random&marketId=${country}&apikey=1twKLyrauG3OZrFZiN9ApTE1ANWFyZTo`)
- return events;
+  return events;
 }
+
+
