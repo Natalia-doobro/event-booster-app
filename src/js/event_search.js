@@ -18,16 +18,13 @@ const state = {
 async function onLoadPage() {
   state.classification = 'music';
   state.page = 1;
-
-  if (eventInput.value === '') {
-    const data = await fetchPopularEvents(state.page, state.classification, state.country);
-    createGalleryMarkup(data);
-    info({
-      text: `Type a name/genre/place of the event`,
-      delay: 2000,
-      maxTextHeight: null,
-    });
-  }
+  const data = await fetchPopularEvents(state.page, state.classification, state.country);
+  createGalleryMarkup(data);
+  info({
+    text: `Type a name/genre/place of the event`,
+    delay: 2000,
+    maxTextHeight: null,
+  });
 }
 
 async function onEventSearch(e) {
@@ -38,13 +35,18 @@ async function onEventSearch(e) {
     const data = await fetchEventsByName(state.query, state.page);
     clearGalleryMarkup();
     createGalleryMarkup(data);
-    success({
-      text: `Congratulations! Events for your request were found`,
-      delay: 1000,
-      maxTextHeight: null,
-    });
+    if (e.target.value.length > 1) {
+      success({
+        text: `Congratulations! Events for your request were found`,
+        delay: 1000,
+        maxTextHeight: null,
+      });
+    } else {
+      onLoadPage();
+    }
   } catch (err) {
     gallery.innerHTML = 'Oops :(';
+    e.target.value = '';
     error({
       text: 'Can not find any event for your request',
       delay: 1000,
