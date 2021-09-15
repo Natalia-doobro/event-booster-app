@@ -1,5 +1,5 @@
 import { fetchPopularEvents, fetchEventsByName } from './api_service';
-import { eventInput, countryInput, gallery } from './refs';
+import { eventInput, countryInput, gallery, prevPagBtn, firstPagBtn } from './refs';
 import { createGalleryMarkup, clearGalleryMarkup } from './create-markup';
 import debounce from 'lodash.debounce';
 import { alert, info, success, error } from '../../node_modules/@pnotify/core/dist/PNotify.js';
@@ -26,7 +26,15 @@ export async function onLoadPage() {
     delay: 2000,
     maxTextHeight: null,
   });
+
+  // addHiddenClass();
+  
 }
+
+// function addHiddenClass() {
+//   firstPagBtn.classList.add('btn-hidden');
+//   prevPagBtn.classList.add('btn-hidden');
+// }
  
   export function loadNextPage() {    
     clearGallery();
