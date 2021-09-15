@@ -1,10 +1,7 @@
 .bg {
-  width: 100%;
-
   @media screen and (min-width: $tablet) and (max-width: $tablet-max) {
     z-index: 1;
     background-image: url('../images/bg-main-tablet@1x.png');
-    // background-size: 100%;
     background-repeat: no-repeat;
     background-position: top;
 
@@ -20,7 +17,6 @@
     max-width: 100%;
     z-index: 1;
     background-image: url('../images/bg-main-desktop@1x.png');
-    // background-size: 100%;
     background-repeat: no-repeat;
     background-position: top;
 
