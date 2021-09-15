@@ -1,34 +1,56 @@
-.form-area{
-    width: 270px;
-    height: 40px;
-    padding-left: 30px;
-    color: var(placeholder-text-color);
-    
-    border: none;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
+.input-container {  
+  width: 270px;
+  height: 40px;
+  padding: 10px 30px;     
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;    
 
-    @media screen and (max-width: $mobile-max) {
-        display: flex;
-        align-items: center;
-        
-        &:not(:last-child) {
-            margin-bottom: 25px;
-    }
+  @media screen and (max-width: $mobile-max) {
+    display: flex;
+    align-items: center;
+  }
+
+  &:focus {
+    outline: none;
+  }
+  &:focus::-webkit-input-placeholder {
+    color: var(--accent-color);
+    opacity: 0.3; 
+    transition: opacity 0.3s ease;        
+  }        
 }
 
-    &:focus {
-        outline: none;
-      }
-      &:not(:last-child) {    
-        margin-right: 30px;
-      }
-      &:focus::-webkit-input-placeholder {
-        color: var(--accent-color);
-        opacity: 0.3; 
-        transition: opacity 0.3s ease;    
-       }      
+.input-icons {
+  color: var(--accent-color);
+  animation-name: changeScale;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  text-shadow: 0 0 5px;
+}
 
-   
+
+.input-area {
+  display: inline-block;
+  position: relative;
+  
+  &:not(:first-child) {    
+    margin-left: 30px;
+  }
+  @media screen and (max-width: $mobile-max) {
+    &:not(:first-child) {    
+      margin-left: 0;
+      margin-top: 25px;
+    }
+  }
+
+  .input-area_icons-container {
+    position: absolute;
+    display: flex;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }  
 }
