@@ -8,7 +8,7 @@ export async function fetchEventsByName(query, page){
 }
 
 export async function fetchPopularEvents(page, classification, country){
-  const {data: {_embedded: {events}}} = await axios.get(`size=20&page=${page}&sort=random&classificationName=${classification}&marketId=${country}&apikey=1twKLyrauG3OZrFZiN9ApTE1ANWFyZTo`)
+  const {data: {_embedded: {events}}} = await axios.get(`size=20&page=${page}&sort=relevance,desc&classificationName=${classification}&marketId=${country}&apikey=1twKLyrauG3OZrFZiN9ApTE1ANWFyZTo`)
  return events;
 }
 
