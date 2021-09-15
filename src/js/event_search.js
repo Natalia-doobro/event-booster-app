@@ -8,14 +8,15 @@ import '@pnotify/core/dist/BrightTheme.css';
 window.addEventListener('DOMContentLoaded', onLoadPage);
 eventInput.addEventListener('input', debounce(onEventSearch, 1000));
 
-const state = {
+export const state = {
+  target: 'events',
   page: 1,
   country: 202,
   query: '',
   classification: '',
 };
 
-async function onLoadPage() {
+export async function onLoadPage() {
   state.classification = 'music';
   state.page = 1;
   const data = await fetchPopularEvents(state.page, state.classification, state.country);
@@ -26,8 +27,29 @@ async function onLoadPage() {
     maxTextHeight: null,
   });
 }
+ 
+  export function loadNextPage() {    
+    clearGallery();
+    onLoadPage();
+    incrementPage();  
+  }
 
-async function onEventSearch(e) {
+  export function loadPrevPage() {    
+    clearGallery();
+    onLoadPage();
+    dicrementPage();   
+  }
+
+  export function loadCurrentPage() {
+    clearGallery();
+    onLoadPage();
+  }
+
+
+
+  
+
+export async function onEventSearch(e) {
   state.page = 1;
   state.query = e.target.value.trim();
 
@@ -35,6 +57,7 @@ async function onEventSearch(e) {
     const data = await fetchEventsByName(state.query, state.page);
     clearGalleryMarkup();
     createGalleryMarkup(data);
+    incrementPage();
     if (e.target.value.length > 1) {
       success({
         text: `Congratulations! Events for your request were found`,
@@ -62,4 +85,21 @@ countryInput.addEventListener('input', onEventSearchCountries);
 async function onEventSearchCountries(e) {
   const dataCountries = await fetchEvents(e);
   console.log(e);
+}
+
+
+function incrementPage() {
+  state.page++;
+}
+
+function resetPage() {
+  state.page = 1;
+}
+
+function dicrementPage() {
+  state.page--;
+}
+
+function clearGallery() {
+  gallery.innerHTML = '';
 }
