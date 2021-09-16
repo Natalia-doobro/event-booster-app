@@ -83,14 +83,14 @@ export async function onEventSearch(e) {
 
 // =======================================
 
-countryInput.addEventListener('input', onEventSearchCountries);
+// countryInput.addEventListener('input', onEventSearchCountries);
 
-async function onCountrytSearch(e) {
-  state.code = e.target.value.trim();
-  const data = await fetchCountries(state.page, state.code);
-  clearGalleryMarkup();
-  createGalleryMarkup(data);
-}
+// async function onCountrytSearch(e) {
+//   state.code = e.target.value.trim();
+//   const data = await fetchCountries(state.page, state.code);
+//   clearGalleryMarkup();
+//   createGalleryMarkup(data);
+// }
 
 function incrementPage() {
   state.page++;
