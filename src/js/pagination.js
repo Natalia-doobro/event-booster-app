@@ -1,7 +1,8 @@
 import Pagination from 'tui-pagination';
-import { pagination } from './refs.js';
+// import { pagination } from './refs.js';
 import { state } from './event_search.js';
 import { loadCurrentPage, loadNextPage, loadPrevPage } from './event_search.js'
+
 
 export const container = document.getElementById('tui-pagination-container');
 
