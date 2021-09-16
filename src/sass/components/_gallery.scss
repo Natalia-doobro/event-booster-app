@@ -3,7 +3,6 @@
   top: 0;
   left: 0;
   z-index: 10;
-  margin-bottom: 60px;
   // width: 280px;
 
   @media screen and (min-width: $tablet) {
@@ -16,7 +15,6 @@
     top: -44px;
     padding-left: 58px;
     padding-right: 60px;
-    margin-bottom: 80px;
   }
 }
 
@@ -86,7 +84,6 @@
 
 .event-image {
   overflow: hidden;
-  margin-bottom: 5px;
 
   height: 161px;
   object-fit: cover;
@@ -99,6 +96,7 @@
 
 .event-content {
   text-align: center;
+  padding-top: 5px;
 }
 
 .event-title {
@@ -127,6 +125,9 @@
 }
 
 .event-place {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
   font-weight: 600;
   font-size: 12px;
   line-height: 1.25;
@@ -139,8 +140,9 @@
 }
 
 .cards-icons {
+  margin-right: -2px;
   font-size: 9px;
   @media screen and (min-width: $tablet) {
-    font-size: 13px;
+    font-size: 11.5px;
   }
 }
