@@ -1,4 +1,4 @@
-import { fetchPopularEvents, fetchEventsByName } from './api_service';
+import { fetchPopularEvents, fetchEventsByName, fetchCountries } from './api_service';
 import { eventInput, countryInput, gallery } from './refs';
 import { createGalleryMarkup, clearGalleryMarkup } from './create-markup';
 import debounce from 'lodash.debounce';
@@ -7,12 +7,14 @@ import '@pnotify/core/dist/BrightTheme.css';
 
 window.addEventListener('DOMContentLoaded', onLoadPage);
 eventInput.addEventListener('input', debounce(onEventSearch, 1000));
+countryInput.addEventListener('input', debounce(onCountrytSearch, 1000));
 
 const state = {
   page: 1,
   country: 202,
   query: '',
   classification: '',
+  code: '',
 };
 
 async function onLoadPage() {
@@ -55,9 +57,16 @@ async function onEventSearch(e) {
 
 // =======================================
 
-countryInput.addEventListener('input', onEventSearchCountries);
-
-async function onEventSearchCountries(e) {
-  const dataCountries = await fetchEvents(e);
-  console.log(e);
+async function onCountrytSearch(e) {
+  state.code = e.target.value.trim();
+  const data = await fetchCountries(state.page, state.code);
+  clearGalleryMarkup();
+  createGalleryMarkup(data);
 }
+
+// countryInput.addEventListener('input', onEventSearchCountries);
+
+// async function onEventSearchCountries(e) {
+//   const dataCountries = await fetchEvents(e);
+//   console.log(e);
+// }
