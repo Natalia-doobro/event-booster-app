@@ -28,34 +28,29 @@ export async function onLoadPage() {
   });
 
   // addHiddenClass();
-  
 }
 
 // function addHiddenClass() {
 //   firstPagBtn.classList.add('btn-hidden');
 //   prevPagBtn.classList.add('btn-hidden');
 // }
- 
-  export function loadNextPage() {    
-    clearGallery();
-    onLoadPage();
-    incrementPage();  
-  }
 
-  export function loadPrevPage() {    
-    clearGallery();
-    onLoadPage();
-    dicrementPage();   
-  }
+export function loadNextPage() {
+  clearGallery();
+  onLoadPage();
+  incrementPage();
+}
 
-  export function loadCurrentPage() {
-    clearGallery();
-    onLoadPage();
-  }
+export function loadPrevPage() {
+  clearGallery();
+  onLoadPage();
+  dicrementPage();
+}
 
-
-
-  
+export function loadCurrentPage() {
+  clearGallery();
+  onLoadPage();
+}
 
 export async function onEventSearch(e) {
   state.page = 1;
@@ -90,11 +85,12 @@ export async function onEventSearch(e) {
 
 countryInput.addEventListener('input', onEventSearchCountries);
 
-async function onEventSearchCountries(e) {
-  const dataCountries = await fetchEvents(e);
-  console.log(e);
+async function onCountrytSearch(e) {
+  state.code = e.target.value.trim();
+  const data = await fetchCountries(state.page, state.code);
+  clearGalleryMarkup();
+  createGalleryMarkup(data);
 }
-
 
 function incrementPage() {
   state.page++;
