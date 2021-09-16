@@ -73,6 +73,8 @@ img {
 }
 
 .container-border {
-  border-left: 1px solid #212121;
-  border-right: 1px solid #212121;
+  @media screen and (min-width: $tablet) {
+    border-left: 1px solid #212121;
+    border-right: 1px solid #212121;
+  }
 }
