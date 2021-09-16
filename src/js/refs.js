@@ -8,10 +8,21 @@ const refs = {
   smallModalImg: document.querySelector('.img-card_image_small'),
   modalGallery: document.querySelector('.modal_gallery'),
   pagination: document.querySelector('#tui-pagination-container'),
-  modal: document.querySelector(".modal"),
+  modal: document.querySelector('.modal'),
+  galleryCard: document.querySelector('.event-card'),
 };
-
-  export const {eventInput, countryInput, gallery, pagination, modal, modalImg, closeMdl, modalOverlay} = refs;
+export const {
+  eventInput,
+  countryInput,
+  gallery,
+  pagination,
+  modal,
+  modalImg,
+  closeMdl,
+  modalOverlay,
+  modalGallery,
+  galleryCard,
+} = refs;
 
 
 
