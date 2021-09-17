@@ -24,6 +24,4 @@ export function closeModalByOverlay(el) {
   el.preventDefault();
   modal.classList.remove('is-open');
   modalImg.src = '';
-
-
 }
