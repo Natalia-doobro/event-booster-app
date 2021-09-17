@@ -10,10 +10,10 @@ const refs = {
   pagination: document.querySelector('#tui-pagination-container'),
   modal: document.querySelector(".modal"),
   firstPagBtn: document.querySelector('.tui-first'),
-  prevPagBtn: document.querySelector('.tui-prev')
+  prevPagBtn: document.querySelector('.tui-prev'),
 };
 
-  export const {eventInput, countryInput, gallery, pagination, modal, modalImg, closeMdl, modalOverlay, firstPagBtn, prevPagBtn} = refs;
+  export const {eventInput, countryInput, gallery,modalGallery, pagination, modal, modalImg, closeMdl, modalOverlay, firstPagBtn, prevPagBtn} = refs;
 
 
 
