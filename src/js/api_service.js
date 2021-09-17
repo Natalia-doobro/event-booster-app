@@ -13,13 +13,13 @@ export async function fetchEventsByName(query, page) {
   return events;
 }
 
-export async function fetchPopularEvents(page, classification, country) {
+export async function fetchPopularEvents(page, classification) {
   const {
     data: {
       _embedded: { events },
     },
   } = await axios.get(
-    `size=20&page=${page}&sort=relevance,desc&classificationName=${classification}&marketId=${country}&apikey=1twKLyrauG3OZrFZiN9ApTE1ANWFyZTo`,
+    `size=20&page=${page}&sort=relevance,desc&classificationName=${classification}&&apikey=1twKLyrauG3OZrFZiN9ApTE1ANWFyZTo`,
   );
   return events;
 }
@@ -32,7 +32,7 @@ export async function fetchCountries(page, country) {
       _embedded: { events },
     },
   } = await axios.get(
-    `size=20&page=${page}&sort=random&countryCode=${country}&apikey=1twKLyrauG3OZrFZiN9ApTE1ANWFyZTo`,
+    `size=20&page=${page}&sort=relevance,desc&countryCode=${country}&apikey=1twKLyrauG3OZrFZiN9ApTE1ANWFyZTo`,
   );
   return events;
 }

@@ -1,4 +1,4 @@
-import { fetchPopularEvents, fetchEventsByName } from './api_service';
+import { fetchPopularEvents, fetchEventsByName, fetchCountries } from './api_service';
 import { eventInput, countryInput, gallery, prevPagBtn, firstPagBtn } from './refs';
 import { createGalleryMarkup, clearGalleryMarkup } from './create-markup';
 import debounce from 'lodash.debounce';
@@ -11,15 +11,15 @@ eventInput.addEventListener('input', debounce(onEventSearch, 1000));
 export const state = {
   target: 'events',
   page: 1,
-  country: 202,
   query: '',
   classification: '',
+  code: '',
 };
 
 export async function onLoadPage() {
   state.classification = 'music';
   state.page = 1;
-  const data = await fetchPopularEvents(state.page, state.classification, state.country);
+  const data = await fetchPopularEvents(state.page, state.classification);
   createGalleryMarkup(data);
   info({
     text: `Type a name/genre/place of the event`,
@@ -83,14 +83,28 @@ export async function onEventSearch(e) {
 
 // =======================================
 
-countryInput.addEventListener('input', onEventSearchCountries);
+countryInput.addEventListener('input', onCountrytSearch);
 
-async function onCountrytSearch(e) {
-  state.code = e.target.value.trim();
-  const data = await fetchCountries(state.page, state.code);
+
+export async function onCountrytSearch(e) {
+
+  const resp = await fetchPopularEvents(state.page, state.classification)
+  const codeData = resp.forEach(event => { 
+      if (countryInput.value === event._embedded.venues[0].country.name) {
+        state.code === event._embedded.venues[0].country.countryCode;
+        return state.code;
+      }
+    })
+
+  const countryData = fetchCountries(state.page, state.code);
   clearGalleryMarkup();
-  createGalleryMarkup(data);
+  createGalleryMarkup(countryData);
 }
+
+
+
+
+//_================================================
 
 function incrementPage() {
   state.page++;
