@@ -1,9 +1,10 @@
-import { fetchPopularEvents, fetchEventsByName } from './api_service';
-import { eventInput, countryInput, gallery, prevPagBtn, firstPagBtn } from './refs';
-import { createGalleryMarkup, clearGalleryMarkup } from './create-markup';
+import { fetchEventsByName, fetchPopularEvents } from './api_service';
+import { eventInput, gallery } from './refs';
+import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
 import debounce from 'lodash.debounce';
-import { alert, info, success, error } from '../../node_modules/@pnotify/core/dist/PNotify.js';
+import { error, info, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/BrightTheme.css';
+import { openModal } from './modal';
 
 window.addEventListener('DOMContentLoaded', onLoadPage);
 eventInput.addEventListener('input', debounce(onEventSearch, 1000));
@@ -21,6 +22,9 @@ export async function onLoadPage() {
   state.page = 1;
   const data = await fetchPopularEvents(state.page, state.classification, state.country);
   createGalleryMarkup(data);
+  gallery.addEventListener('click', (e)=>{
+    openModal(e,data)
+  })
   info({
     text: `Type a name/genre/place of the event`,
     delay: 2000,
