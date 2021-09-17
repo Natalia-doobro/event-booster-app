@@ -96,7 +96,7 @@ export async function onCountrytSearch(e) {
       }
     })
 
-  const countryData = fetchCountries(state.page, state.code);
+  const countryData = await fetchCountries(state.page, state.code);
   clearGalleryMarkup();
   createGalleryMarkup(countryData);
 }
