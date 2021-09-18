@@ -15,20 +15,28 @@ export const state = {
   classification: 'music',
   country: '',
   code: '',
+  // totalEl: '',
+  // sizePage: '',
 };
 
+
+
 export async function onLoadPage() {
+
   state.page = 1;
   const data = await fetchEvents(state.query, state.page, state.classification, state.country);
   createGalleryMarkup(data);
   gallery.addEventListener('click', e => {
     openModal(e, data);
   });
+
   info({
     text: `Type a name/genre/place of the event`,
     delay: 2000,
     maxTextHeight: null,
   });
+  console.log(state.page);
+  
 
   // addHiddenClass();
 }
@@ -66,22 +74,19 @@ export async function onEventSearch(e) {
 //   prevPagBtn.classList.add('btn-hidden');
 // }
 
-export function loadNextPage() {
-  clearGallery();
-  onLoadPage();
+export function loadNextPage() {  
   incrementPage();
+  onLoadPage();
 }
 
-export function loadPrevPage() {
-  clearGallery();
-  onLoadPage();
+export function loadPrevPage() {  
   dicrementPage();
+  onLoadPage(); 
 }
 
-export function loadCurrentPage() {
-  clearGallery();
-  onLoadPage();
-}
+// export function loadLastPage() {
+//   const lastPage = state.totalPage.value;
+// }
 
 // =======================================
 
@@ -106,6 +111,4 @@ function dicrementPage() {
   state.page--;
 }
 
-function clearGallery() {
-  gallery.innerHTML = '';
-}
+
