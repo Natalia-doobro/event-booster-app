@@ -38,6 +38,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+.is-hidden {
+  overflow: hidden;
+}
 
 .title {
   color: var(--accent-color);

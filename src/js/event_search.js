@@ -22,7 +22,7 @@ export async function onLoadPage() {
   const data = await fetchEvents(state.query, state.page, state.classification, state.country );
   createGalleryMarkup(data);
   gallery.addEventListener('click', (e)=>{
-    openModal(e,data)
+    openModal(e, data)
   })
   info({
     text: `Type a name/genre/place of the event`,
@@ -49,9 +49,9 @@ export async function onEventSearch(e) {
         maxTextHeight: null,
       });
     } else {
-      onLoadPage() 
+      onLoadPage()
     }
-   
+
   } catch (err) {
     e.target.value = '';
     gallery.innerHTML = 'Oops :(';
