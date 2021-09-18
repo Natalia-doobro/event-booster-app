@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EVENT BOOSTER</title>
-   
+
     <!--нормалізатор -->
     <link
       rel="stylesheet"
@@ -23,23 +23,23 @@
       type="text/css"
     />
     <link href="../node_modules/tui-pagination/dist/tui-pagination.css" rel="stylesheet" />
-    
   </head>
   <body class="bg">
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
     <!-- <include src="./partials/example.html"></include> -->
 
-    <!-- Шапка приложения -->   
+    <!-- Шапка приложения -->
     <include src="./partials/header.html"></include>
-   
-    <!-- main (контент страницы) -->
-    <div class="container container-border">
-      <include src="./partials/gallery-list.html"></include>
-      <include src="./partials/pagination.html"></include>
+    <div class="borders">
+      <!-- main (контент страницы) -->
+      <div class="container">
+        <include src="./partials/gallery-list.html"></include>
+        <include src="./partials/pagination.html"></include>
 
-      <!-- footer -->
+        <!-- footer -->
 
-      <include src="./partials/footer.html"></include>
+        <include src="./partials/footer.html"></include>
+      </div>
     </div>
     <!-- модальное окно -->
     <include src="./partials/modal.html"></include>
