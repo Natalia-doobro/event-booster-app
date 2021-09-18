@@ -14,30 +14,22 @@ export const state = {
   query: '',
   classification: 'music',
   country: '',
+  code: '',
   // totalEl: '',
   // sizePage: '',
-
 };
 
 
 
 export async function onLoadPage() {
-  // state.page = 1;
-  clearGalleryMarkup();
+
+  state.page = 1;
   const data = await fetchEvents(state.query, state.page, state.classification, state.country);
   createGalleryMarkup(data);
-  // state.totalEl = data.page.totalElements;
-  // console.log(state.totalEl);
-  // state.sizePage = data.page.size;
-  // console.log(state.sizePage);
+  gallery.addEventListener('click', e => {
+    openModal(e, data);
+  });
 
-
-  // totalItems = `${state.totalPage}`;
-  //   console.log(totalItems);
-
-  gallery.addEventListener('click', (e)=>{
-    openModal(e, data)
-  })
   info({
     text: `Type a name/genre/place of the event`,
     delay: 2000,
@@ -48,7 +40,6 @@ export async function onLoadPage() {
 
   // addHiddenClass();
 }
-
 
 export async function onEventSearch(e) {
   state.page = 1;
@@ -65,9 +56,8 @@ export async function onEventSearch(e) {
         maxTextHeight: null,
       });
     } else {
-      onLoadPage()
+      onLoadPage();
     }
-
   } catch (err) {
     e.target.value = '';
     gallery.innerHTML = 'Oops :(';
@@ -97,8 +87,6 @@ export function loadPrevPage() {
 // export function loadLastPage() {
 //   const lastPage = state.totalPage.value;
 // }
-
-
 
 // =======================================
 
