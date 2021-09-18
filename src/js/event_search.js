@@ -9,21 +9,21 @@ import { openModal } from './modal';
 window.addEventListener('DOMContentLoaded', onLoadPage);
 eventInput.addEventListener('input', debounce(onEventSearch, 1000));
 
-const state = {
+export const state = {
   page: 1,
   query: '',
   classification: 'music',
   country: '',
-
+  code: '',
 };
 
 export async function onLoadPage() {
   state.page = 1;
-  const data = await fetchEvents(state.query, state.page, state.classification, state.country );
+  const data = await fetchEvents(state.query, state.page, state.classification, state.country);
   createGalleryMarkup(data);
-  gallery.addEventListener('click', (e)=>{
-    openModal(e, data)
-  })
+  gallery.addEventListener('click', e => {
+    openModal(e, data);
+  });
   info({
     text: `Type a name/genre/place of the event`,
     delay: 2000,
@@ -32,7 +32,6 @@ export async function onLoadPage() {
 
   // addHiddenClass();
 }
-
 
 export async function onEventSearch(e) {
   state.page = 1;
@@ -49,9 +48,8 @@ export async function onEventSearch(e) {
         maxTextHeight: null,
       });
     } else {
-      onLoadPage()
+      onLoadPage();
     }
-
   } catch (err) {
     e.target.value = '';
     gallery.innerHTML = 'Oops :(';
@@ -84,8 +82,6 @@ export function loadCurrentPage() {
   clearGallery();
   onLoadPage();
 }
-
-
 
 // =======================================
 
