@@ -9,18 +9,32 @@ import { openModal } from './modal';
 window.addEventListener('DOMContentLoaded', onLoadPage);
 eventInput.addEventListener('input', debounce(onEventSearch, 1000));
 
-const state = {
+export const state = {
   page: 1,
   query: '',
   classification: 'music',
   country: '',
+  // totalEl: '',
+  // sizePage: '',
 
 };
 
+
+
 export async function onLoadPage() {
-  state.page = 1;
-  const data = await fetchEvents(state.query, state.page, state.classification, state.country );
+  // state.page = 1;
+  clearGalleryMarkup();
+  const data = await fetchEvents(state.query, state.page, state.classification, state.country);
   createGalleryMarkup(data);
+  // state.totalEl = data.page.totalElements;
+  // console.log(state.totalEl);
+  // state.sizePage = data.page.size;
+  // console.log(state.sizePage);
+
+
+  // totalItems = `${state.totalPage}`;
+  //   console.log(totalItems);
+
   gallery.addEventListener('click', (e)=>{
     openModal(e, data)
   })
@@ -29,6 +43,8 @@ export async function onLoadPage() {
     delay: 2000,
     maxTextHeight: null,
   });
+  console.log(state.page);
+  
 
   // addHiddenClass();
 }
@@ -68,22 +84,19 @@ export async function onEventSearch(e) {
 //   prevPagBtn.classList.add('btn-hidden');
 // }
 
-export function loadNextPage() {
-  clearGallery();
-  onLoadPage();
+export function loadNextPage() {  
   incrementPage();
+  onLoadPage();
 }
 
-export function loadPrevPage() {
-  clearGallery();
-  onLoadPage();
+export function loadPrevPage() {  
   dicrementPage();
+  onLoadPage(); 
 }
 
-export function loadCurrentPage() {
-  clearGallery();
-  onLoadPage();
-}
+// export function loadLastPage() {
+//   const lastPage = state.totalPage.value;
+// }
 
 
 
@@ -110,6 +123,4 @@ function dicrementPage() {
   state.page--;
 }
 
-function clearGallery() {
-  gallery.innerHTML = '';
-}
+
