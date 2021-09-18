@@ -1,7 +1,6 @@
 import Pagination from 'tui-pagination';
-//import { pagination } from './refs.js';
-import { state } from './event_search.js';
-import { onLoadPage, loadNextPage, loadPrevPage } from './event_search.js';
+import { onEventSearch, state, totalPages } from './event_search.js';
+import { onLoadPage } from './event_search.js';
 
 
 
@@ -18,26 +17,45 @@ export const myPagination = new Pagination(container,  {
     
 });
 
+
+
+
+
 myPagination.on('afterMove', (event) => {
     const currentPage = event.page;
     console.log(currentPage);
-    
-    
-    
-        if (currentPage === state.page + 1) {
-           loadNextPage();
-        }
-        if (currentPage === state.page - 1) {        
-            loadPrevPage();
-        }
-    
-        else {
-           state.page = `${currentPage}`;  
-            onLoadPage();     
-        }
+    // myPagination.totalItems = `${totalPages.value}`;
+        
+    if (currentPage === state.page + 1) {
+        incrementPage();
+        
     }
-);
+    if (currentPage === state.page - 1) {        
+        dicrementPage();
+        onLoadPage(); 
+    }
 
+    else {
+        state.page = `${currentPage}`;  
+        onLoadPage();     
+    }
+     
+        
+});
+
+
+
+    function incrementPage() {
+        state.page++;
+    }
+    
+    function resetPage() {
+        state.page = 1;
+    }
+    
+    function dicrementPage() {
+        state.page--;
+    }
 
 
 

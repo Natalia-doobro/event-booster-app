@@ -7,7 +7,7 @@ import '@pnotify/core/dist/BrightTheme.css';
 import { openModal } from './modal';
 
 window.addEventListener('DOMContentLoaded', onLoadPage);
-eventInput.addEventListener('input', debounce(onEventSearch, 1000));
+// eventInput.addEventListener('input', debounce(onEventSearch, 1000));
 
 export const state = {
   page: 1,
@@ -16,15 +16,24 @@ export const state = {
   country: '',
   code: '',
   // totalEl: '',
-  // sizePage: '',
+  // totalPages: '',
 };
+
+// page: {size: 20, totalElements: 49368, totalPages: 2469, number: 1}
+// number: 1
+// size: 20
+// totalElements: 49368
+// totalPages: 2469
+// _embedded: {,…}
+// _links: {,…}
 
 
 
 export async function onLoadPage() {
 
-  state.page = 1;
+  // state.page = 1;
   const data = await fetchEvents(state.query, state.page, state.classification, state.country);
+  clearGalleryMarkup();
   createGalleryMarkup(data);
   gallery.addEventListener('click', e => {
     openModal(e, data);
@@ -36,28 +45,38 @@ export async function onLoadPage() {
     maxTextHeight: null,
   });
   console.log(state.page);
-  
-
-  // addHiddenClass();
+  const totalEl = data.page.totalElements;
+  const totalPages = data.page.totalPages;
+  console.log(totalPages);
+  console.log(totalEl);
+  eventInput.addEventListener('input', debounce(onEventSearch, 1000));  
 }
+
+
+
+
 
 export async function onEventSearch(e) {
   state.page = 1;
   state.query = e.target.value.trim();
+  // resetPage();
+  console.log(state.page);
   try {
     const data = await fetchEvents(state.query, state.page, state.classification, state.country);
     clearGalleryMarkup();
     createGalleryMarkup(data);
-    incrementPage();
+    console.log(state.page);
+    // incrementPage();
     if (data._embedded.events.length > 1 && e.target.value.length > 3) {
       success({
         text: `Congratulations! Events for your request were found`,
         delay: 1000,
         maxTextHeight: null,
       });
-    } else {
-      onLoadPage();
-    }
+    } 
+    // else {
+    //   onLoadPage();
+    // }
   } catch (err) {
     e.target.value = '';
     gallery.innerHTML = 'Oops :(';
@@ -69,24 +88,7 @@ export async function onEventSearch(e) {
   }
 }
 
-// function addHiddenClass() {
-//   firstPagBtn.classList.add('btn-hidden');
-//   prevPagBtn.classList.add('btn-hidden');
-// }
 
-export function loadNextPage() {  
-  incrementPage();
-  onLoadPage();
-}
-
-export function loadPrevPage() {  
-  dicrementPage();
-  onLoadPage(); 
-}
-
-// export function loadLastPage() {
-//   const lastPage = state.totalPage.value;
-// }
 
 // =======================================
 
@@ -99,16 +101,5 @@ export function loadPrevPage() {
 //   createGalleryMarkup(data);
 // }
 
-function incrementPage() {
-  state.page++;
-}
-
-function resetPage() {
-  state.page = 1;
-}
-
-function dicrementPage() {
-  state.page--;
-}
 
 
