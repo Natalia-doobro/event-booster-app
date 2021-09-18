@@ -1,4 +1,4 @@
 import  Pagination from './js/pagination.js';
 import './sass/main.scss';
-import fetchEventsByName from './js/event_search';
+import {onLoadPage, onEventSearch} from './js/event_search';
 import './js/header-animation.js';
