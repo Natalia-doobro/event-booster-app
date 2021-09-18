@@ -1,4 +1,4 @@
-import { fetchEventsByName, fetchPopularEvents } from './api_service';
+import { fetchEvents } from './api_service';
 import { eventInput, gallery } from './refs';
 import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
 import debounce from 'lodash.debounce';
@@ -9,18 +9,17 @@ import { openModal } from './modal';
 window.addEventListener('DOMContentLoaded', onLoadPage);
 eventInput.addEventListener('input', debounce(onEventSearch, 1000));
 
-export const state = {
-  target: 'events',
+const state = {
   page: 1,
-  country: 202,
   query: '',
-  classification: '',
+  classification: 'music',
+  country: '',
+
 };
 
 export async function onLoadPage() {
-  state.classification = 'music';
   state.page = 1;
-  const data = await fetchPopularEvents(state.page, state.classification, state.country);
+  const data = await fetchEvents(state.query, state.page, state.classification, state.country );
   createGalleryMarkup(data);
   gallery.addEventListener('click', (e)=>{
     openModal(e,data)
@@ -32,6 +31,36 @@ export async function onLoadPage() {
   });
 
   // addHiddenClass();
+}
+
+
+export async function onEventSearch(e) {
+  state.page = 1;
+  state.query = e.target.value.trim();
+  try {
+    const data = await fetchEvents(state.query, state.page, state.classification, state.country);
+    clearGalleryMarkup();
+    createGalleryMarkup(data);
+    incrementPage();
+    if (data._embedded.events.length > 1 && e.target.value.length > 3) {
+      success({
+        text: `Congratulations! Events for your request were found`,
+        delay: 1000,
+        maxTextHeight: null,
+      });
+    } else {
+      onLoadPage() 
+    }
+   
+  } catch (err) {
+    e.target.value = '';
+    gallery.innerHTML = 'Oops :(';
+    error({
+      text: 'Can not find any event for your request',
+      delay: 1000,
+      maxTextHeight: null,
+    });
+  }
 }
 
 // function addHiddenClass() {
@@ -56,34 +85,7 @@ export function loadCurrentPage() {
   onLoadPage();
 }
 
-export async function onEventSearch(e) {
-  state.page = 1;
-  state.query = e.target.value.trim();
 
-  try {
-    const data = await fetchEventsByName(state.query, state.page);
-    clearGalleryMarkup();
-    createGalleryMarkup(data);
-    incrementPage();
-    if (e.target.value.length > 1) {
-      success({
-        text: `Congratulations! Events for your request were found`,
-        delay: 1000,
-        maxTextHeight: null,
-      });
-    } else {
-      onLoadPage();
-    }
-  } catch (err) {
-    gallery.innerHTML = 'Oops :(';
-    e.target.value = '';
-    error({
-      text: 'Can not find any event for your request',
-      delay: 1000,
-      maxTextHeight: null,
-    });
-  }
-}
 
 // =======================================
 
