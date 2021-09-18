@@ -14,6 +14,7 @@ export const state = {
   country: 202,
   query: '',
   classification: '',
+  code: '',
 };
 
 export async function onLoadPage() {
@@ -83,14 +84,28 @@ export async function onEventSearch(e) {
 
 // =======================================
 
-countryInput.addEventListener('input', onEventSearchCountries);
+countryInput.addEventListener('input', onCountrytSearch);
 
-async function onCountrytSearch(e) {
-  state.code = e.target.value.trim();
-  const data = await fetchCountries(state.page, state.code);
+export async function onCountrytSearch(e) {
+  const resp = await fetchPopularEvents(state.page, state.classification);
+  const codeData = resp.forEach(event => {
+    if (countryInput.value === event._embedded.venues[0].country.name) {
+      state.code === event._embedded.venues[0].country.countryCode;
+      return state.code;
+    }
+  });
+
+  const countryData = fetchCountries(state.page, state.code);
   clearGalleryMarkup();
-  createGalleryMarkup(data);
+  createGalleryMarkup(countryData);
 }
+
+// async function onCountrytSearch(e) {
+//   state.code = e.target.value.trim();
+//   const data = await fetchCountries(state.page, state.code);
+//   clearGalleryMarkup();
+//   createGalleryMarkup(data);
+// }
 
 function incrementPage() {
   state.page++;
