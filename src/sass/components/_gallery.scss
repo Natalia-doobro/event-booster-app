@@ -62,10 +62,11 @@
 
   &:hover {
     transform: scale(1.1);
+    background-color: var(--dark-color);
+    cursor: pointer;
     @media screen and (min-width: $tablet) {
-      box-shadow: 1px 2px 2px 1px var(--accent-color);
-      border-radius: 50px 0;
-      cursor: pointer;
+      box-shadow: 0.5px 0.5px 0.3px 0.5px var(--accent-color);
+      border-radius: 45px 0;
     }
   }
 
@@ -108,9 +109,12 @@
 .event-content {
   text-align: center;
   padding-top: 5px;
-  padding-bottom: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
+
+  @media screen and (min-width: $tablet) {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
 }
 
 .event-title {
