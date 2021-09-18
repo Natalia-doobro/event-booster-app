@@ -103,15 +103,11 @@ figure {
         left: 50%;
       
         width: 0;
-        height: 2px;
-      
-        overflow: hidden;
-      
+        height: 2px;      
+        overflow: hidden;      
         border-radius: 0.3125rem;
         box-shadow: 0 0 2.5rem  var(--accent-color);
       
-        
-        // animation: pulse 1.25s cubic-bezier(0.66, 0, 0, 1) infinite;
       
         transform: translate(-50%, -50%);
         transition: width 0.5s ease 0.5s, height 0.5s ease;
