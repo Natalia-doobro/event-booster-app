@@ -2,16 +2,16 @@
 <div class="modal_lb">
     <img src='{{images.3.url}}' alt='{{name}}' class='img-card_image_small' />
     <div class='modal_wrap'>
-        <div class='img'>
+        <div class='modal_img'>
             <img src='{{images.2.url}}' alt='{{name}}' class='img-card_image' />
         </div>
         <div class="modal_content">
             <div class='modal-container'>
                 <h2 class='modal-title'>INFO</h2>
                 {{#if info}}
-                <p class='modal_text'>{{info}}</p>
+                <p class='modal_text info'>{{info}}</p>
                 {{else}}
-                <p class='modal-text'>No Information</p>
+                <p class='modal_text'>No Information</p>
                 {{/if}}
             </div>
             <div class='modal-container'>
@@ -30,12 +30,12 @@
             </div>
             <div class='modal-container'>
                 <h2 class='modal-title'>PRICES</h2>
-                <p class='modal_text'>
+                <p class='modal_text wrap_price'>
                     <span class='material-icons modal_icon'>qr_code</span>
                     {{priceRanges.0.type}} {{priceRanges.0.min}}-{{priceRanges.0.max}} {{priceRanges.0.currency}}
                 </p>
                 <button type='button' class='modal_buy_btn'>BUY TICKETS</button>
-                <p class='modal_text'>
+                <p class='modal_text wrap_price'>
                     <span class='material-icons modal_icon'>qr_code</span>
                     {{priceRanges.0.min}}-{{priceRanges.0.max}} {{priceRanges.0.currency}}
                 </p>
