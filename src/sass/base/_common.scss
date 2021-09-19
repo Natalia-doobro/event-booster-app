@@ -38,6 +38,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+.is-hidden {
+  overflow: hidden;
+}
 
 .title {
   color: var(--accent-color);
@@ -58,22 +61,32 @@ img {
 .container {
   margin-right: auto;
   margin-left: auto;
-  
 
   @media screen and (min-width: $mobile) {
-    width: 280px;
+    width: 290px;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
   }
 
   @media screen and (min-width: $tablet) {
-    width: 610px;
+    width: 630px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   @media screen and (min-width: $desktop) {
-    width: 1050px;
+    width: 1000px;
+    padding-left: 35px;
+    padding-right: 35px;
   }
 }
 
-.container-border {
-  border-left: 1px solid #212121;
-  border-right: 1px solid #212121;
+.borders {
+  @media screen and (min-width: $desktop) {
+    width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: 1px solid #212121;
+    border-right: 1px solid #212121;
+  }
 }

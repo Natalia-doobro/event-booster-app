@@ -2,32 +2,27 @@
   <div class="logo-bg">
     <div class="logo"></div>
   </div>
-    <div class="container header-position">
-      <h1 class="header-sleng">FIND BEST EVENTS <br> AROUND THE WORLD</h1>
-                  
-      <form autocomplete="on" novalidate>           
-        <div class="input-area">
-          <input class=" input-container search-event-area" 
-          type="text" id="event" name="query_event" 
-          autocomplete="off" 
-          placeholder="Start searching" 
-          required pattern="^[a-zA-Z]+$">
-          <div class="input-area_icons-container">
-            <span class="material-icons input-icons">search</span>           
-          </div>
-        </div>                               
+  <div class="container header-position">
+    <h1 class="header-sleng">FIND BEST EVENTS <br> AROUND THE WORLD</h1>
 
-        <div class="input-area">
-          <input class="input-container search-country-area" 
-          type="text" id="country" name="query_country"
-          autocomplete="off" 
-          placeholder="Choose country"
-          required pattern="^[a-zA-Z]+$">
-          <div class="input-area_icons-container">
-            <span class="material-icons input-icons">arrow_drop_down</span>                  
-          </div>
+    <form autocomplete="on" novalidate>
+      <div class="input-area">
+        <input class=" input-container search-event-area" type="text" id="event" name="query_event" autocomplete="off"
+          placeholder="Start searching" required pattern="^[a-zA-Z]+$">
+        <div class="input-area_icons-container">
+          <span class="material-icons input-icons">search</span>
         </div>
-      </form>
-    </div>
-</header>
+      </div>
 
+      <div class="input-area">
+        <input class="input-container search-country-area input--position" type="text" id="country" name="query_country"
+          autocomplete="off" placeholder="Choose country" required pattern="^[a-zA-Z]+$">
+        <ul class="countries-list list" id="countries-list"></ul>
+        <div class="input-area_icons-container">
+          <span class="material-icons input-icons">arrow_drop_down</span>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</header>

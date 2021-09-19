@@ -5,7 +5,7 @@
   "main": "index.js",
   "homepage": "https://Natalia-doobro.github.io/event-booster-app",
   "scripts": {
-    "dev": "parcel src/*.html",
+    "dev": "parcel src/*.html -p 5959",
     "build": "parcel build src/*.html --public-url /event-booster-app/"
   },
   "repository": {

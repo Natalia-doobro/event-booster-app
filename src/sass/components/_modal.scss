@@ -1,7 +1,4 @@
 .modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +7,6 @@
   opacity: 0;
   pointer-events: none;
   transition: 0.5ms ease-in-out;
-
   overflow-y: scroll;
   z-index: 11;
 }
@@ -26,23 +22,22 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(32, 13, 29, 0.6) /*  var(--overlay-color) */;
+  background-color: var(--overlay-color);
   backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   transition: opacity 0.5ms ease-in-out;
 }
 
 .modal_lb {
   position: absolute;
-  /* padding: 0 15px; */
-  top: 50%;
-  padding: 62px 15px 62px 15px;
-  left: 50%;
+  padding: 0px 15px 62px 15px;
   z-index: 99;
-  transform: translate(-50%, -50%);
+  top: 100%;
+  left: 50%;
   border-radius: 300px 0px;
-  width: 942px;
-  overflow: hidden;
-  background-color: #fff2fd /* var(--modal-bg-color) */;
+  transform: translate(-50%, -50%);
+
+  background-color: var(--modal-bg-color);
 }
 
 .modal_button {
@@ -54,17 +49,17 @@
   position: absolute;
   top: 30px;
   right: 30px;
-  /* width: 48px;
-  height: 48px; */
   width: 25px;
   height: 25px;
   border: 2px solid black;
-  color: #4c00fe /* var(--button) */;
-  /* border-radius: 10%; */
-  /* background-color: transparent; */
+  color: var(--button);
   cursor: pointer;
   outline: none;
   z-index: 11;
+}
+
+.modal_button:hover {
+  color: var(--accent-color);
 }
 
 .modal_wrap {
@@ -75,8 +70,6 @@
 
 .modal_more_button {
   z-index: 3;
-  display: flex;
-  justify-content: center;
   width: 255px;
   height: 40px;
   font-size: 16px;
@@ -90,19 +83,19 @@
   color: #4c00fe;
 }
 
+.modal_more_button:hover {
+  border: 1px solid var(--accent-color);
+}
+
 .modal-title {
-  /* text-align: center; */
   margin-bottom: 7px;
-  color: #dc56c5 /* var(--accent-color) */;
+  color: var(--accent-color);
   font-size: 24px;
   font-weight: 600;
   line-height: 1.2;
 }
 
 .modal_text {
-  /* position: relative;
-  overflow: hidden; */
-
   font-size: 18px;
   color: #0e0e0e /* var(--dark-color) */;
   font-weight: 400;
@@ -132,6 +125,10 @@
   margin-bottom: 31px;
 }
 
+.modal_buy_btn:hover {
+  background: var(--accent-color);
+}
+
 .modal_content {
   z-index: 11;
   margin: 0 15px 0 30px;
@@ -148,7 +145,7 @@
   object-fit: cover;
 }
 
-.material-icons {
+.modal_icon {
   display: inline;
   width: 29px;
   height: 19px;
