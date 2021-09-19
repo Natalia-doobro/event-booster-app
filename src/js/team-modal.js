@@ -11,7 +11,7 @@ openTeamModal.addEventListener('click', e => {
   e.preventDefault();
 
   const teamModalMarkup = teamModalTpl(teamData);
-  document.querySelector('.modal-team').innerHTML = teamModalMarkup;
+  teamModal.innerHTML = teamModalMarkup;
 
   const btnCloseModal = document.querySelector('.close');
   document.body.style.overflow = 'hidden';

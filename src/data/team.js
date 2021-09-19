@@ -71,7 +71,7 @@ export default [
     fullName: 'Ihor Rudniev',
     position: "Тут будет информация о проделанной работе",
     photo: `./${img8}`,
-    Slack: '#',
+    Slack: 'U023FTCKKCY',
     linkedIn: '',
     Git: '#',
   },
