@@ -31,7 +31,7 @@ export async function onLoadPage() {
   });
 
   info({
-    text: `Type a name/genre/place of the event`,
+    text: `Type a keyword or place of the event`,
     delay: 2000,
     maxTextHeight: null,
   });
