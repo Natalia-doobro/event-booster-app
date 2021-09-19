@@ -20,7 +20,7 @@ export const myPagination = new Pagination(container,  {
 
 myPagination.on('afterMove', (event) => {
     const currentPage = event.page;
-    console.log(currentPage);
+    
     
     
     

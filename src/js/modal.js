@@ -17,7 +17,6 @@ export function openModal(e,data) {
     const src = data._embedded.events
     const result = src.filter((el) => el.id === e.target.id);
     createModalMarkup(result[0]);
-    console.log(result);
 
   }
 }
