@@ -5,6 +5,8 @@ import debounce from 'lodash.debounce';
 import { error, info, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/BrightTheme.css';
 import { openModal } from './modal';
+import { myPagination, container, options} from './pagination.js';
+// import { Pagination } from 'tui-pagination';
 
 window.addEventListener('DOMContentLoaded', onLoadPage);
 // eventInput.addEventListener('input', debounce(onEventSearch, 1000));
@@ -15,19 +17,8 @@ export const state = {
   classification: 'music',
   country: '',
   code: '',
-  // totalEl: '',
-  // totalPages: '',
+  
 };
-
-// page: {size: 20, totalElements: 49368, totalPages: 2469, number: 1}
-// number: 1
-// size: 20
-// totalElements: 49368
-// totalPages: 2469
-// _embedded: {,…}
-// _links: {,…}
-
-
 
 export async function onLoadPage() {
 
@@ -35,6 +26,7 @@ export async function onLoadPage() {
   const data = await fetchEvents(state.query, state.page, state.classification, state.country);
   clearGalleryMarkup();
   createGalleryMarkup(data);
+  
   gallery.addEventListener('click', e => {
     openModal(e, data);
   });
@@ -44,16 +36,33 @@ export async function onLoadPage() {
     delay: 2000,
     maxTextHeight: null,
   });
-  console.log(state.page);
-  const totalEl = data.page.totalElements;
+  const pageSize = data.page.size;
   const totalPages = data.page.totalPages;
+  const totalEl = data.page.totalElements;
+  console.log(myPagination);
+  myPagination._options.totalItems = totalEl;
+  console.log(myPagination._options.totalItems);
+  myPagination._options.itemsPerPage = pageSize;
+  console.log(myPagination._options.itemsPerPage);
+    
   console.log(totalPages);
   console.log(totalEl);
+  
   eventInput.addEventListener('input', debounce(onEventSearch, 1000));  
 }
 
 
 
+
+// export function getLastPage() {
+//   const lastPage = Math.ceil(totalEl / totalPages);
+//   return !lastPage ? 1 : lastPage;
+// }
+// _getLastPage: function() {
+//   var lastPage = Math.ceil(this._options.totalItems / this._options.itemsPerPage);
+
+//   return !lastPage ? 1 : lastPage;
+// },
 
 
 export async function onEventSearch(e) {
