@@ -1,8 +1,5 @@
 import Pagination from 'tui-pagination';
-import { onEventSearch, state, onLoadPage } from './event_search.js';
-
-
-
+import { state, onLoadPage } from './event_search.js';
 
 export const container = document.getElementById('tui-pagination-container');
 
@@ -14,17 +11,12 @@ export const options = {
     centerAlign: true,
 };
 
-
-
 export const myPagination = new Pagination (container, options);
-
-
 
 myPagination.on('afterMove', (event) => {
     const currentPage = event.page;
     console.log(currentPage);
-      
-        
+             
     if (currentPage === state.page + 1) {
         incrementPage();
         
@@ -35,23 +27,16 @@ myPagination.on('afterMove', (event) => {
     }
 
     else {
-        state.page = `${currentPage}`;  
+        state.page = `${currentPage - 1}`;  
         onLoadPage();     
     }
-     
-        
 });
-
-
 
     function incrementPage() {
         state.page++;
     }
     
-    function resetPage() {
-        state.page = 1;
-    }
-    
+       
     function dicrementPage() {
         state.page--;
     }

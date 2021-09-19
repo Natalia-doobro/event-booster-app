@@ -5,14 +5,14 @@ import debounce from 'lodash.debounce';
 import { error, info, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/BrightTheme.css';
 import { openModal } from './modal';
-import { myPagination, container, options} from './pagination.js';
-// import { Pagination } from 'tui-pagination';
+import { myPagination } from './pagination.js';
+
 
 window.addEventListener('DOMContentLoaded', onLoadPage);
-// eventInput.addEventListener('input', debounce(onEventSearch, 1000));
+eventInput.addEventListener('input', debounce(onEventSearch, 1000));
 
 export const state = {
-  page: 1,
+  page: 0,
   query: '',
   classification: 'music',
   country: '',
@@ -22,7 +22,6 @@ export const state = {
 
 export async function onLoadPage() {
 
-  // state.page = 1;
   const data = await fetchEvents(state.query, state.page, state.classification, state.country);
   clearGalleryMarkup();
   createGalleryMarkup(data);
@@ -36,56 +35,47 @@ export async function onLoadPage() {
     delay: 2000,
     maxTextHeight: null,
   });
-  const pageSize = data.page.size;
-  const totalPages = data.page.totalPages;
-  const totalEl = data.page.totalElements;
-  console.log(myPagination);
-  myPagination._options.totalItems = totalEl;
-  console.log(myPagination._options.totalItems);
-  myPagination._options.itemsPerPage = pageSize;
-  console.log(myPagination._options.itemsPerPage);
-    
-  console.log(totalPages);
-  console.log(totalEl);
   
-  eventInput.addEventListener('input', debounce(onEventSearch, 1000));  
+  const pageSize = data.page.size;
+  const totalEl = data.page.totalElements;
+  if (totalEl > 1000) {
+    myPagination._options.totalItems = 1000 - pageSize;      
+  }
+  else {
+    myPagination._options.totalItems = totalEl;
+  }
+  myPagination._options.itemsPerPage = pageSize;
+  
+  
+  
 }
 
 
-
-
-// export function getLastPage() {
-//   const lastPage = Math.ceil(totalEl / totalPages);
-//   return !lastPage ? 1 : lastPage;
-// }
-// _getLastPage: function() {
-//   var lastPage = Math.ceil(this._options.totalItems / this._options.itemsPerPage);
-
-//   return !lastPage ? 1 : lastPage;
-// },
-
-
 export async function onEventSearch(e) {
-  state.page = 1;
+   
   state.query = e.target.value.trim();
-  // resetPage();
+  resetPage();
   console.log(state.page);
   try {
     const data = await fetchEvents(state.query, state.page, state.classification, state.country);
     clearGalleryMarkup();
     createGalleryMarkup(data);
-    console.log(state.page);
-    // incrementPage();
+    if (state.page = 0) {
+      myPagination.reset();
+    }
+    
+    const pageSize = data.page.size;
+    const totalEl = data.page.totalElements;
+    myPagination._options.totalItems = totalEl;  
+    myPagination._options.itemsPerPage = pageSize;  
+    
     if (data._embedded.events.length > 1 && e.target.value.length > 3) {
       success({
         text: `Congratulations! Events for your request were found`,
         delay: 1000,
         maxTextHeight: null,
       });
-    } 
-    // else {
-    //   onLoadPage();
-    // }
+    }     
   } catch (err) {
     e.target.value = '';
     gallery.innerHTML = 'Oops :(';
@@ -97,6 +87,9 @@ export async function onEventSearch(e) {
   }
 }
 
+function resetPage() {
+  state.page = 0;
+}
 
 
 // =======================================
