@@ -1,11 +1,11 @@
-.input-container {  
+.input-container {
   width: 270px;
   height: 40px;
-  padding: 10px 30px;     
+  padding: 10px 30px;
   border: none;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
-  border-radius: 20px;    
+  border-radius: 20px;
 
   @media screen and (max-width: $mobile-max) {
     display: flex;
@@ -17,9 +17,9 @@
   }
   &:focus::-webkit-input-placeholder {
     color: var(--accent-color);
-    opacity: 0.3; 
-    transition: opacity 0.3s ease;        
-  }        
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
 }
 
 .input-icons {
@@ -31,16 +31,15 @@
   text-shadow: 0 0 5px;
 }
 
-
 .input-area {
   display: inline-block;
   position: relative;
-  
-  &:not(:first-child) {    
+
+  &:not(:first-child) {
     margin-left: 30px;
   }
   @media screen and (max-width: $mobile-max) {
-    &:not(:first-child) {    
+    &:not(:first-child) {
       margin-left: 0;
       margin-top: 25px;
     }
@@ -52,5 +51,50 @@
     right: 16px;
     top: 50%;
     transform: translateY(-50%);
-  }  
+  }
+}
+
+.countries-list {
+  // z-index: 0;
+  // top: -40px;
+  padding-top: 40px;
+  position: relative;
+  height: 210px;
+  overflow: auto;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+}
+
+.countries-item {
+  // background-color: rgba(255, 255, 255, 0.2);
+  color: #cccccc;
+  text-align: left;
+}
+
+.countries-item span {
+  margin-left: 30px;
+}
+
+.countries-item:hover {
+  background: rgba(255, 255, 255, 1);
+  color: #ffffff;
+  background-color: var(--accent-color);
+}
+// скроллбар
+::-webkit-scrollbar {
+  /* 1 - скроллбар */
+  width: 4px;
+  height: 4px;
+  // background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  /* 5 - ползунок */
+  border-radius: 3px;
+  height: 43px;
+  background-color: #939393;
 }

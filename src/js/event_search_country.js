@@ -1,10 +1,14 @@
-import { countryInput } from './refs';
+import { countryInput, eventInputCounry } from './refs';
 import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
 import { state } from './event_search';
 import countriesList from '../data_countries.json';
 import listCountriesTpl from '../templation/list-countries.hbs';
+import { before } from 'lodash';
 
-console.log(listCountriesTpl(countriesList[10]));
+const markupCountryList = listCountriesTpl(countriesList);
+
+// console.log(markupCountryList);
+eventInputCounry.insertAdjacentHTML('beforeend', markupCountryList);
 
 countryInput.addEventListener('input', debounce(onCountrytSearch, 1000));
 
