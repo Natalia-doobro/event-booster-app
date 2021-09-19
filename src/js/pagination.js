@@ -6,7 +6,7 @@ export const container = document.getElementById('tui-pagination-container');
 export const options = {
     totalItems: 500,
     itemsPerPage: 10,   
-    visiblePages: 7,
+    visiblePages: 5,
     page: 1,
     centerAlign: true,
 };
