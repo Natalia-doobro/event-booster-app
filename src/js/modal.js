@@ -30,5 +30,4 @@ export function closeModalByOverlay(e) {
   e.preventDefault();
   modal.classList.remove('is-open');
   body.classList.remove('is-hidden');
-
 }
