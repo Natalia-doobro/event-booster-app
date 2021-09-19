@@ -1,13 +1,13 @@
-import img1 from '../images/team/Nataliya.jpg'
-import img2 from '../images/team/Mariya.jpg'
-import img3 from '../images/team/Andrey.jpg'
-import img4 from '../images/team/Alina.jpg'
-import img5 from '../images/team/Sergey.jpg'
-import img6 from '../images/team/Uliya.jpg'
-import img7 from '../images/team/Yana.jpg'
-import img8 from '../images/team/Ihor.jpg'
-import img9 from '../images/team/Naira.jpg'
-import img10 from '../images/team/Dmitriy.jpg'
+import img1 from '../images/team/Nataliya.jpg';
+import img2 from '../images/team/Mariya.jpg';
+import img3 from '../images/team/Andrey.jpg';
+import img4 from '../images/team/Alina.jpg';
+import img5 from '../images/team/Sergey.jpg';
+import img6 from '../images/team/Uliya.jpg';
+import img7 from '../images/team/Yana.jpg';
+import img8 from '../images/team/Ihor.jpg';
+import img9 from '../images/team/Naira.jpg';
+import img10 from '../images/team/Dmitriy.jpg';
 
 
 export default [
