@@ -13,7 +13,10 @@ const refs = {
   modal: document.querySelector('.modal'),
   firstPagBtn: document.querySelector('.tui-first'),
   prevPagBtn: document.querySelector('.tui-prev'),
+  btnArrow: document.querySelector('.icon--rotate'),
+  countryItem: document.querySelector('.countries-item'),
 };
+
 export const {
   eventInput,
   eventInputCounry,
@@ -28,4 +31,6 @@ export const {
   body,
   firstPagBtn,
   prevPagBtn,
+  btnArrow,
+  countryItem,
 } = refs;
