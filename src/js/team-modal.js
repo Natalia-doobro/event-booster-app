@@ -1,5 +1,5 @@
 import teamModalTpl from '../templation/teamModal.hbs';
-import teamData from '../data/team.js';
+import teamData from './team.js';
 
 
 
