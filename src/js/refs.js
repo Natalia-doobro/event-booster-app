@@ -1,5 +1,6 @@
 const refs = {
   eventInput: document.querySelector('.search-event-area'),
+  eventInputCounry: document.querySelector('#countries-list'),
   body: document.querySelector('body'),
   countryInput: document.querySelector('.search-country-area'),
   gallery: document.querySelector('.gallery'),
@@ -15,6 +16,7 @@ const refs = {
 };
 export const {
   eventInput,
+  eventInputCounry,
   countryInput,
   gallery,
   modalGallery,
@@ -27,6 +29,3 @@ export const {
   firstPagBtn,
   prevPagBtn,
 } = refs;
-
-
-
