@@ -15,20 +15,21 @@ export const myPagination = new Pagination (container, options);
 
 myPagination.on('afterMove', (event) => {
     const currentPage = event.page;
-    console.log(currentPage);
-             
-    if (currentPage === state.page + 1) {
-        incrementPage();
-        
-    }
-    if (currentPage === state.page - 1) {        
-        dicrementPage();
-        onLoadPage(); 
-    }
+    
+    
+    
+        if (currentPage === state.page + 1) {
+           loadNextPage();
+        }
+        if (currentPage === state.page - 1) {        
+            loadPrevPage();
+        }
+    
+        else {
+           state.page = `${currentPage}`;  
+            onLoadPage();     
+        }
 
-    else {
-        state.page = `${currentPage - 1}`;  
-        onLoadPage();     
     }
 });
 

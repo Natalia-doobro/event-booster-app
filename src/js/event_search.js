@@ -31,7 +31,7 @@ export async function onLoadPage() {
   });
 
   info({
-    text: `Type a name/genre/place of the event`,
+    text: `Type a keyword or place of the event`,
     delay: 2000,
     maxTextHeight: null,
   });
@@ -94,14 +94,18 @@ function resetPage() {
 
 // =======================================
 
-// countryInput.addEventListener('input', onEventSearchCountries);
 
-// async function onCountrytSearch(e) {
-//   state.code = e.target.value.trim();
-//   const data = await fetchCountries(state.page, state.code);
-//   clearGalleryMarkup();
-//   createGalleryMarkup(data);
-// }
+function incrementPage() {
+  state.page++;
+}
+
+function resetPage() {
+  state.page = 1;
+}
+
+function dicrementPage() {
+  state.page--;
+}
 
 
 

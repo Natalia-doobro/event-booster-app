@@ -1,14 +1,14 @@
-import { closeMdl, modal, body, modalOverlay } from './refs';
+import { body, closeMdl, modal, modalOverlay } from './refs';
 import { clearModalMarkup, createModalMarkup } from './create-modal-markup';
 
-// gallery.addEventListener('click', openModal);
-closeMdl.addEventListener('click', (el, data) => {
-  closeModal(el);
-  clearModalMarkup(el);
+closeMdl.addEventListener('click', (e) => {
+  closeModal(e);
+  clearModalMarkup(e);
 });
-
-modalOverlay.addEventListener('click', closeModalByOverlay);
-
+modalOverlay.addEventListener('click', (e) => {
+  clearModalMarkup(e);
+  closeModalByOverlay(e);
+});
 
 export function openModal(e,data) {
   if (e.target.nodeName !== '.event-card') {
@@ -17,18 +17,16 @@ export function openModal(e,data) {
     const src = data._embedded.events
     const result = src.filter((el) => el.id === e.target.id);
     createModalMarkup(result[0]);
-    console.log(result);
 
   }
-
 }
 export function closeModal(el) {
   el.preventDefault();
   modal.classList.remove('is-open');
+  body.classList.remove('is-hidden');
 }
 export function closeModalByOverlay(e) {
   e.preventDefault();
   modal.classList.remove('is-open');
   body.classList.remove('is-hidden');
-
 }
