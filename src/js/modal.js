@@ -10,23 +10,24 @@ modalOverlay.addEventListener('click', (e) => {
   closeModalByOverlay(e);
 });
 
-export function openModal(e,data) {
+
+export function openModal(e, data) {
   if (e.target.nodeName !== '.event-card') {
-    modal.classList.add('is-open');
-    body.classList.add('is-hidden');
-    const src = data._embedded.events
+    modal.classList.add('is_open');
+    body.classList.add('is_hidden');
+    const src = data._embedded.events;
     const result = src.filter((el) => el.id === e.target.id);
     createModalMarkup(result[0]);
-
   }
 }
 export function closeModal(el) {
   el.preventDefault();
-  modal.classList.remove('is-open');
-  body.classList.remove('is-hidden');
+  modal.classList.remove('is_open');
+  body.classList.remove('is_hidden');
 }
 export function closeModalByOverlay(e) {
   e.preventDefault();
-  modal.classList.remove('is-open');
-  body.classList.remove('is-hidden');
+  modal.classList.remove('is_open');
+  body.classList.remove('is_hidden');
 }
+
