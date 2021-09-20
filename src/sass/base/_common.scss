@@ -68,7 +68,7 @@ img {
     padding-right: 7.5px;
   }
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) and (max-width: $tablet-max) {
     width: 630px;
     padding-left: 15px;
     padding-right: 15px;
@@ -82,10 +82,16 @@ img {
 }
 
 .borders {
+  margin-left: auto;
+  margin-right: auto;
   @media screen and (min-width: $desktop) {
     width: 1050px;
-    margin-left: auto;
-    margin-right: auto;
+    border-left: 1px solid #212121;
+    border-right: 1px solid #212121;
+  }
+  @media screen and (min-width: $tablet) and (max-width: $tablet-max) {
+    width: 630px;
+
     border-left: 1px solid #212121;
     border-right: 1px solid #212121;
   }
