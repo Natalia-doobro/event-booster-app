@@ -14,7 +14,7 @@ export default [
   {
     fullName: 'Natalia Dobrovolskaya',
     position: 'Тут будет информация о проделанной работе',
-    photo: `./${img1}`,
+    photo: `${img1}`,
     Slack: '#',
     linkedIn: '',
     Git: '#',
@@ -22,15 +22,15 @@ export default [
   {
     fullName: 'Mariia Slobozhan',
     position: 'Тут будет информация о проделанной работе',
-    photo: `./${img2}`,
+    photo: `${img2}`,
     Slack: '#',
     linkedIn: '',
     Git: '#',
   },
   {
-    fullName: 'Andrew Galkin',
+    fullName: 'Andrey Galkin',
     position: 'Тут будет информация о проделанной работе',
-    photo: `./${img3}`,
+    photo: `${img3}`,
     Slack: '#',
     linkedIn: '',
     Git: '#',
@@ -38,7 +38,7 @@ export default [
   {
     fullName: 'Alina Kasianova',
     position: 'Тут будет информация о проделанной работе',
-    photo: `./${img4}`,
+    photo: `${img4}`,
     Slack: '#',
     linkedIn: '',
     Git: '#',
@@ -46,7 +46,7 @@ export default [
   {
     fullName: 'Sergey Yakimov',
     position: 'Тут будет информация о проделанной работе',
-    photo: `./${img5}`,
+    photo: `${img5}`,
     Slack: '#',
     linkedIn: '',
     Git: '#',
@@ -54,7 +54,7 @@ export default [
   {
     fullName: 'Uliya Kucherenko',
     position: 'Тут будет информация о проделанной работе',
-    photo: `./${img6}`,
+    photo: `${img6}`,
     Slack: '#',
     linkedIn: '',
     Git: '#',
@@ -62,7 +62,7 @@ export default [
   {
     fullName: 'Yana Yermak',
     position: "Тут будет информация о проделанной работе",
-    photo: `./${img7}`,
+    photo: `${img7}`,
     Slack: '#',
     linkedIn: '',
     Git: '#',
@@ -70,7 +70,7 @@ export default [
   {
     fullName: 'Ihor Rudniev',
     position: "Тут будет информация о проделанной работе",
-    photo: `./${img8}`,
+    photo: `${img8}`,
     Slack: 'U023FTCKKCY',
     linkedIn: '',
     Git: '#',
@@ -78,7 +78,7 @@ export default [
   {
     fullName: 'Naira Kazeian',
     position: "Тут будет информация о проделанной работе",
-    photo: `./${img9}`,
+    photo: `${img9}`,
     Slack: '#',
     linkedIn: '',
     Git: '#',
@@ -86,7 +86,7 @@ export default [
   {
     fullName: 'Dmitriy Shevchuk',
     position: "Тут будет информация о проделанной работе",
-    photo: `./${img10}`,
+    photo: `${img10}`,
     Slack: '#',
     linkedIn: '',
     Git: '#',
