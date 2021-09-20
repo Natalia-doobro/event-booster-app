@@ -4,12 +4,18 @@ import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
 import debounce from 'lodash.debounce';
 import { error, info, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/BrightTheme.css';
-import { openModal } from './modal';
+import { openModal} from './modal';
 import { myPagination } from './pagination.js';
 
 
 window.addEventListener('DOMContentLoaded', onLoadPage);
 eventInput.addEventListener('input', debounce(onEventSearch, 1000));
+
+function renderModal(data){
+  gallery.addEventListener('click', e => {
+    openModal(e, data);
+  });
+}
 
 export const state = {
   page: 0,
@@ -17,7 +23,7 @@ export const state = {
   classification: 'music',
   country: '',
   code: '',
-  
+
 };
 
 export async function onLoadPage() {
@@ -25,34 +31,31 @@ export async function onLoadPage() {
   const data = await fetchEvents(state.query, state.page, state.classification, state.country);
   clearGalleryMarkup();
   createGalleryMarkup(data);
-  
-  gallery.addEventListener('click', e => {
-    openModal(e, data);
-  });
+  renderModal(data)
 
   info({
     text: `Type a keyword or place of the event`,
     delay: 2000,
     maxTextHeight: null,
   });
-  
+
   const pageSize = data.page.size;
   const totalEl = data.page.totalElements;
   if (totalEl > 1000) {
-    myPagination._options.totalItems = 1000 - pageSize;      
+    myPagination._options.totalItems = 1000 - pageSize;
   }
   else {
     myPagination._options.totalItems = totalEl;
   }
   myPagination._options.itemsPerPage = pageSize;
-  
-  
-  
+
+
+
 }
 
 
 export async function onEventSearch(e) {
-   
+
   state.query = e.target.value.trim();
   resetPage();
   console.log(state.page);
@@ -60,22 +63,26 @@ export async function onEventSearch(e) {
     const data = await fetchEvents(state.query, state.page, state.classification, state.country);
     clearGalleryMarkup();
     createGalleryMarkup(data);
+    renderModal(data)
+    // gallery.addEventListener('click', e => {
+    //   openModal(e, data);
+    // });
     if (state.page = 0) {
       myPagination.reset();
     }
-    
+
     const pageSize = data.page.size;
     const totalEl = data.page.totalElements;
-    myPagination._options.totalItems = totalEl;  
-    myPagination._options.itemsPerPage = pageSize;  
-    
+    myPagination._options.totalItems = totalEl;
+    myPagination._options.itemsPerPage = pageSize;
+
     if (data._embedded.events.length > 1 && e.target.value.length > 3) {
       success({
         text: `Congratulations! Events for your request were found`,
         delay: 1000,
         maxTextHeight: null,
       });
-    }     
+    }
   } catch (err) {
     e.target.value = '';
     gallery.innerHTML = 'Oops :(';
