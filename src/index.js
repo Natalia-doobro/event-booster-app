@@ -7,4 +7,5 @@ import fetchEventsByName from './js/event_search';
 import './js/team.js';
 import './js/team-modal';
 import './templation/teamModal.hbs';
+import './js/preloader';
 
