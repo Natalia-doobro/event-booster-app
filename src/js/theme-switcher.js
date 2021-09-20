@@ -7,6 +7,7 @@ const Theme = {
 const bodyRef = document.body;
 const containerRef = document.querySelector('.container');
 const headerRef = document.querySelector('.header-bg');
+const footerRef = document.querySelector('.footer-section');
 
 const btnChange = document.querySelector('#theme-switch-toggle');
 btnChange.addEventListener('change', themeChange);
@@ -24,12 +25,16 @@ function themeChange() {
         bodyRef.classList.remove('light-theme');
         headerRef.classList.add('dark-theme');
         headerRef.classList.remove('light-theme');
+        footerRef.classList.add('dark-theme');
+        footerRef.classList.remove('light-theme');
         localStorage.setItem('current-theme', Theme.DARK);
     } else { 
         bodyRef.classList.add('light-theme');
         bodyRef.classList.remove('dark-theme');
         headerRef.classList.add('light-theme');
         headerRef.classList.remove('dark-theme');
+        footerRef.classList.add('light-theme');
+        footerRef.classList.remove('dark-theme');
         localStorage.setItem('current-theme', Theme.LIGHT);
     }
 }
