@@ -1,6 +1,6 @@
 import img1 from '../images/team/Nataliya.jpg';
 import img2 from '../images/team/Mariya.jpg';
-import img3 from '../images/team/Andrey.jpg';
+import img3 from '../images/team/Andrei.jpg';
 import img4 from '../images/team/Alina.jpg';
 import img5 from '../images/team/Sergey.jpg';
 import img6 from '../images/team/Uliya.jpg';
@@ -28,7 +28,7 @@ export default [
     Git: '#',
   },
   {
-    fullName: 'Andrew Galkin',
+    fullName: 'Andrey Galkin',
     position: 'Тут будет информация о проделанной работе',
     photo: `./${img3}`,
     Slack: '#',
