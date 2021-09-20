@@ -16,13 +16,13 @@ window.addEventListener('click', countryListVisioWindow);
 
 function countryListVisio(e) {
   e.stopPropagation();
-  eventInputCounry.classList.remove('is-open');
+  eventInputCounry.classList.remove('is-hiden');
   countryInput.classList.add('input-open');
   // btnArrow.classList.add('icon--rotate');
 }
 
 function countryListVisioWindow() {
-  eventInputCounry.classList.add('is-open');
+  eventInputCounry.classList.add('is-hiden');
   countryInput.classList.remove('input-open');
   // btnArrow.classList.remove('icon--rotate');
 }
