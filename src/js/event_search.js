@@ -5,27 +5,27 @@ import debounce from 'lodash.debounce';
 import { error, info, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/BrightTheme.css';
 import { openModal } from './modal';
+import { myPagination } from './pagination.js';
+
 
 window.addEventListener('DOMContentLoaded', onLoadPage);
 eventInput.addEventListener('input', debounce(onEventSearch, 1000));
 
 export const state = {
-  page: 1,
+  page: 0,
   query: '',
   classification: 'music',
   country: '',
   code: '',
-  // totalEl: '',
-  // sizePage: '',
+  
 };
-
-
 
 export async function onLoadPage() {
 
-  state.page = 1;
   const data = await fetchEvents(state.query, state.page, state.classification, state.country);
+  clearGalleryMarkup();
   createGalleryMarkup(data);
+  
   gallery.addEventListener('click', e => {
     openModal(e, data);
   });
@@ -35,29 +35,47 @@ export async function onLoadPage() {
     delay: 2000,
     maxTextHeight: null,
   });
-  console.log(state.page);
   
-
-  // addHiddenClass();
+  const pageSize = data.page.size;
+  const totalEl = data.page.totalElements;
+  if (totalEl > 1000) {
+    myPagination._options.totalItems = 1000 - pageSize;      
+  }
+  else {
+    myPagination._options.totalItems = totalEl;
+  }
+  myPagination._options.itemsPerPage = pageSize;
+  
+  
+  
 }
 
+
 export async function onEventSearch(e) {
-  state.page = 1;
+   
   state.query = e.target.value.trim();
+  resetPage();
+  console.log(state.page);
   try {
     const data = await fetchEvents(state.query, state.page, state.classification, state.country);
     clearGalleryMarkup();
     createGalleryMarkup(data);
-    incrementPage();
+    if (state.page = 0) {
+      myPagination.reset();
+    }
+    
+    const pageSize = data.page.size;
+    const totalEl = data.page.totalElements;
+    myPagination._options.totalItems = totalEl;  
+    myPagination._options.itemsPerPage = pageSize;  
+    
     if (data._embedded.events.length > 1 && e.target.value.length > 3) {
       success({
         text: `Congratulations! Events for your request were found`,
         delay: 1000,
         maxTextHeight: null,
       });
-    } else {
-      onLoadPage();
-    }
+    }     
   } catch (err) {
     e.target.value = '';
     gallery.innerHTML = 'Oops :(';
@@ -69,26 +87,13 @@ export async function onEventSearch(e) {
   }
 }
 
-// function addHiddenClass() {
-//   firstPagBtn.classList.add('btn-hidden');
-//   prevPagBtn.classList.add('btn-hidden');
-// }
-
-export function loadNextPage() {  
-  incrementPage();
-  onLoadPage();
+function resetPage() {
+  state.page = 0;
 }
 
-export function loadPrevPage() {  
-  dicrementPage();
-  onLoadPage(); 
-}
-
-// export function loadLastPage() {
-//   const lastPage = state.totalPage.value;
-// }
 
 // =======================================
+
 
 function incrementPage() {
   state.page++;
@@ -101,5 +106,6 @@ function resetPage() {
 function dicrementPage() {
   state.page--;
 }
+
 
 
