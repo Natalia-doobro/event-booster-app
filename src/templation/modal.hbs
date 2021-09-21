@@ -32,14 +32,18 @@
                 <h2 class='modal-title'>PRICES</h2>
                 <p class='modal_text wrap_price'>
                     <span class='material-icons modal_icon'>qr_code</span>
-                    {{priceRanges.0.type}} {{priceRanges.0.min}}-{{priceRanges.0.max}} {{priceRanges.0.currency}}
+                    Standart {{priceRanges.0.min}}-{{priceRanges.0.max}} {{priceRanges.0.currency}}
                 </p>
-                <button type='button' class='modal_buy_btn'>BUY TICKETS</button>
+                <form class="modal_link_btn" action="{{url}}" method="GET" target="_blank" rel="noopener noreferrer">
+                    <button type='submit' class='modal_buy_btn'>BUY TICKETS</button>
+                </form>
                 <p class='modal_text wrap_price'>
                     <span class='material-icons modal_icon'>qr_code</span>
-                    {{priceRanges.0.min}}-{{priceRanges.0.max}} {{priceRanges.0.currency}}
+                VIP {{priceRanges.0.min}}-{{priceRanges.0.max}} {{priceRanges.0.currency}}
                 </p>
-                <button type='button' class='modal_buy_btn'>BUY TICKETS</button>
+                <form class="modal_link_btn" action="{{url}}" method="GET" target="_blank" rel="noopener noreferrer">
+                    <button type='submit' class='modal_buy_btn'>BUY TICKETS</button>
+                </form>
             </div>
         </div>
     </div>
