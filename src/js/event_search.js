@@ -2,7 +2,7 @@ import { fetchEvents } from './api_service';
 import { eventInput, gallery, form } from './refs';
 import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
 import debounce from 'lodash.debounce';
-import { error, info, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
+import { error, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/BrightTheme.css';
 import { openModal } from './modal';
 import { myPagination } from './pagination.js';
@@ -83,6 +83,8 @@ export async function onEventSearch(e) {
 function resetPage() {
   state.page = 0;
 }
+
+// =======================================
 
 function incrementPage() {
   state.page++;

@@ -17,7 +17,7 @@ const refs = {
   countryItem: document.querySelector('.countries-item'),
   containnerCountries: document.querySelector('.containner-countries'),
   inputLineBottom: document.querySelector('add-line'),
-  form: document.addEventListener.querySelector('.form-container'),
+  form: document.querySelector('.form-container'),
 };
 
 export const {

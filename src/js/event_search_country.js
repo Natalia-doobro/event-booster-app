@@ -1,7 +1,7 @@
 import { fetchEvents } from './api_service';
 import { countryInput, eventInputCounry, form, btnArrow, countryItem} from './refs';
 import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
-import { error, info, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
+import { error, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
 import { state } from './event_search';
 import countriesList from '../data_countries.json';
 import listCountriesTpl from '../templation/list-countries.hbs';
@@ -14,6 +14,7 @@ form.addEventListener('change', onCountrytSearch);
 
 
 export async function onCountrytSearch(e) {
+  e.stopPropagation()
   try {
     const data = await fetchEvents(
       state.query,
