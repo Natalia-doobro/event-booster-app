@@ -18,11 +18,13 @@
       </div>
 
       <div class="input-area input--position">
-        <input class="input-container search-country-area " type="text" id="country" name="query_country"
+        <!-- <input class="input-container search-country-area " type="text" id="country" name="query_country"
           autocomplete="off" placeholder="Choose country" required pattern="^[a-zA-Z]+$">
-        <div class='containner-countries add-line'>
-          <ul class="countries-list list is-hiden" id="countries-list"></ul>
-        </div>
+        <ul class="countries-list list is-hiden" id="countries-list"></ul> -->
+        <select-pure name="country"   id="countries-list">
+          <option-pure value="" disabled hidden class="label">Choose country</option-pure>
+        </select-pure>
+
         <div class="input-area_icons-container icon--rotate">
           <span class="material-icons input-icons">arrow_drop_down</span>
         </div>
