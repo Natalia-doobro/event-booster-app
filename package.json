@@ -33,6 +33,7 @@
     "basiclightbox": "^5.0.4",
     "handlebars": "^4.7.7",
     "lodash.debounce": "^4.0.8",
+    "select-pure": "^2.1.1-alpha.1",
     "tui-pagination": "^3.4.1"
   }
 }

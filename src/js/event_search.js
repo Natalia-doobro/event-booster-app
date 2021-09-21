@@ -33,11 +33,6 @@ export async function onLoadPage() {
   createGalleryMarkup(data);
   renderModal(data)
 
-  info({
-    text: `Type a keyword or place of the event`,
-    delay: 2000,
-    maxTextHeight: null,
-  });
 
   const pageSize = data.page.size;
   const totalEl = data.page.totalElements;
@@ -58,7 +53,6 @@ export async function onEventSearch(e) {
 
   state.query = e.target.value.trim();
   resetPage();
-  console.log(state.page);
   try {
     const data = await fetchEvents(state.query, state.page, state.classification, state.country);
     clearGalleryMarkup();
