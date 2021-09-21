@@ -20,14 +20,17 @@ myPagination.on('afterMove', (event) => {
 
     if (currentPage === state.page + 1) {
         loadNextPage();
+        onTop()
     }
     if (currentPage === state.page - 1) {
         loadPrevPage();
+        onTop()
     }
 
     else {
         state.page = `${currentPage}`;
         onLoadPage();
+        onTop()
     }
 
 });
@@ -42,4 +45,9 @@ function dicrementPage() {
 }
 
 
-
+function onTop() {
+    document.documentElement.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
