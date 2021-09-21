@@ -1,12 +1,5 @@
 import { fetchEvents } from './api_service';
-import {
-  countryInput,
-  eventInputCounry,
-  btnArrow,
-  countryItem,
-  containnerCountries,
-  inputLineBottom,
-} from './refs';
+import { countryInput, eventInputCounry, btnArrow, countryItem } from './refs';
 import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
 import { state } from './event_search';
 import countriesList from '../data_countries.json';
@@ -25,22 +18,20 @@ function countryListVisio(e) {
   e.stopPropagation();
   eventInputCounry.classList.remove('is-hiden');
   countryInput.classList.add('input-open');
-  containnerCountries.classList.add('add-line');
   // btnArrow.classList.add('icon--rotate');
 }
 
 function countryListVisioWindow() {
   eventInputCounry.classList.add('is-hiden');
   countryInput.classList.remove('input-open');
-  containnerCountries.classList.remove('add-line');
   // btnArrow.classList.remove('icon--rotate');
 }
 
-countryItem.addEventListener('click', addTextInput);
+// countryItem.addEventListener('click', addTextInput);
 
-function addTextInput() {
-  countryInput.value = countryItem.textContent;
-}
+// function addTextInput() {
+//   countryInput.value = countryItem.textContent;
+// }
 
 countryInput.addEventListener('input', debounce(onCountrytSearch, 1000));
 
@@ -60,3 +51,4 @@ export function inputHandler() {
 
   return state.code;
 }
+
