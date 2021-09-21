@@ -17,6 +17,10 @@
   &:hover {
     background-color: var(--accent-color);
   }
+
+  @media screen and (max-width: $mobile-max) {
+    display: none;
+  }
 }
 .show {
   opacity: 1;
