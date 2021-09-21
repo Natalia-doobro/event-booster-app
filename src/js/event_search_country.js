@@ -31,7 +31,7 @@ function countryListVisio(e) {
 
 function countryListVisioWindow() {
   eventInputCounry.classList.add('is-hiden');
-  countryInput.classList.remove('input-open', 'add-line');
+  countryInput.classList.remove('input-open');
   containnerCountries.classList.remove('add-line');
   // btnArrow.classList.remove('icon--rotate');
 }

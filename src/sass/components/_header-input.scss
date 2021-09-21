@@ -62,14 +62,6 @@
   border-radius: 20px 20px 0 0;
 }
 
-// .search-country-area ::after {
-//   display: inline-block;
-//   content: '';
-//   width: 225px;
-//   height: 1px;
-//   background-color: tomato;
-// }
-
 .countries-list {
   position: absolute;
   z-index: 11;
@@ -89,14 +81,6 @@
   overflow: auto;
   cursor: pointer;
 }
-
-// .countries-list::before {
-//   display: inline-block;
-//   content: '';
-//   width: 225px;
-//   height: 1px;
-//   background-color: var(--footer-color);
-// }
 
 // скроллбар
 ::-webkit-scrollbar {
@@ -141,9 +125,9 @@
   width: 225px;
   height: 2px;
   background-color: var(--placeholder-text-color);
-  z-index: 99;
+  z-index: 12;
 }
 
-// .icon--rotate {
-//   transform: rotate(45deg);
-// }
+.icon--rotate {
+  transform: rotate(45deg);
+}
