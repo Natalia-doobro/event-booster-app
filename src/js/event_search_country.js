@@ -10,8 +10,8 @@ import 'select-pure';
 
 const markupCountryList = listCountriesTpl(countriesList);
 eventInputCounry.insertAdjacentHTML('beforeend', markupCountryList);
-
 eventInputCounry.addEventListener('change', onCountrytSearch);
+
 
 export async function onCountrytSearch(e) {
   try {
@@ -40,3 +40,4 @@ export async function onCountrytSearch(e) {
     });
   }
 }
+

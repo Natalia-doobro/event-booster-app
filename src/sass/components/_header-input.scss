@@ -60,12 +60,6 @@
 
 .input-open {
   border-radius: 20px 20px 0 0;
-  &::after {
-    content: '';
-    width: 225px;
-    height: 1px;
-    background-color: tomato;
-  }
 }
 
 select-pure {
@@ -88,9 +82,6 @@ select-pure {
   --font-weight: inherit;
   --select-outline: 1px solid #e3e3e3;
   --dropdown-items: 4;
-
-
-}
 
 
 .countries-item {
@@ -132,5 +123,6 @@ select-pure {
 //   height: 43px;
 //   background-color: var(--placeholder-text-color);
 // }
+
 
 
