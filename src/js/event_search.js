@@ -6,9 +6,11 @@ import { error, success } from '../../node_modules/@pnotify/core/dist/PNotify.js
 import '@pnotify/core/dist/BrightTheme.css';
 import { openModal } from './modal';
 import { myPagination } from './pagination.js';
+import { clearModalMarkup } from './create-modal-markup';
 
 window.addEventListener('DOMContentLoaded', onLoadPage);
 form.addEventListener('input', debounce(onEventSearch, 1000));
+
 
 function renderModal(data) {
   gallery.addEventListener('click', e => {
@@ -28,7 +30,7 @@ export async function onLoadPage() {
   const data = await fetchEvents(state.query, state.page, state.classification, state.country);
   clearGalleryMarkup();
   createGalleryMarkup(data);
-  renderModal(data);
+  renderModal(data)
 
   const pageSize = data.page.size;
   const totalEl = data.page.totalElements;
@@ -47,6 +49,7 @@ export async function onEventSearch(e) {
   resetPage();
   try {
     const data = await fetchEvents(state.query, state.page, state.classification, state.country);
+
     clearGalleryMarkup();
     createGalleryMarkup(data);
     renderModal(data);

@@ -30,8 +30,8 @@ export async function onCountrytSearch(e) {
         delay: 1000,
         maxTextHeight: null,
       });
-      
-    } 
+
+    }
   } catch (err) {
     clearGalleryMarkup();
     error({
