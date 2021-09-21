@@ -1,62 +1,43 @@
 import { fetchEvents } from './api_service';
-import {
-  countryInput,
-  eventInputCounry,
-  btnArrow,
-  countryItem,
-  containnerCountries,
-  inputLineBottom,
-} from './refs';
+import { countryInput, eventInputCounry, btnArrow, countryItem} from './refs';
 import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
+import { error, info, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
 import { state } from './event_search';
 import countriesList from '../data_countries.json';
 import listCountriesTpl from '../templation/list-countries.hbs';
 import { add, debounce } from 'lodash';
+import 'select-pure';
 
 const markupCountryList = listCountriesTpl(countriesList);
 eventInputCounry.insertAdjacentHTML('beforeend', markupCountryList);
+eventInputCounry.addEventListener('change', onCountrytSearch);
 
-/* добавляет класс  скрывает-отображает список стран*/
-countryInput.addEventListener('click', countryListVisio);
-btnArrow.addEventListener('click', countryListVisio);
-window.addEventListener('click', countryListVisioWindow);
-
-function countryListVisio(e) {
-  e.stopPropagation();
-  eventInputCounry.classList.remove('is-hiden');
-  countryInput.classList.add('input-open');
-  containnerCountries.classList.add('add-line');
-  // btnArrow.classList.add('icon--rotate');
-}
-
-function countryListVisioWindow() {
-  eventInputCounry.classList.add('is-hiden');
-  countryInput.classList.remove('input-open');
-  containnerCountries.classList.remove('add-line');
-  // btnArrow.classList.remove('icon--rotate');
-}
-
-countryItem.addEventListener('click', addTextInput);
-
-function addTextInput() {
-  countryInput.value = countryItem.textContent;
-}
-
-countryInput.addEventListener('input', debounce(onCountrytSearch, 1000));
 
 export async function onCountrytSearch(e) {
-  inputHandler();
-  const data = await fetchEvents(state.query, state.page, state.classification, state.code);
-  clearGalleryMarkup();
-  createGalleryMarkup(data);
+  try {
+    const data = await fetchEvents(
+      state.query,
+      state.page,
+      state.classification,
+      eventInputCounry.value,
+    );
+    clearGalleryMarkup();
+    createGalleryMarkup(data);
+    if (data._embedded.events.length > 1 && e.target.value.length >= 2) {
+      success({
+        text: `Congratulations! Events for your request were found`,
+        delay: 1000,
+        maxTextHeight: null,
+      });
+      
+    } 
+  } catch (err) {
+    clearGalleryMarkup();
+    error({
+      text: 'Can not find any event for your request',
+      delay: 1000,
+      maxTextHeight: null,
+    });
+  }
 }
 
-export function inputHandler() {
-  countriesList.find(element => {
-    if (element.name == countryInput.value) {
-      state.code = element.code;
-    }
-  });
-
-  return state.code;
-}
