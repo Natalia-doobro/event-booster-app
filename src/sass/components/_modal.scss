@@ -42,6 +42,7 @@
   position: absolute;
   padding: 75px 15px 104px;
   width: 272px;
+  height: 915px;
   z-index: 99;
   top: 70%;
   left: 50%;
@@ -51,11 +52,13 @@
 
   @media screen and (min-width: $tablet) {
     width: 595px;
+    height: 831px;
     border-radius: 300px 0px;
     padding: 28px 17px 56px 50px;
   }
   @media screen and (min-width: $desktop) {
     width: 930px;
+    height: 1023px;
     padding: 62px 30px 62px 30px;
   }
 }
