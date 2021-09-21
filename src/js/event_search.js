@@ -1,5 +1,5 @@
 import { fetchEvents } from './api_service';
-import { eventInput, gallery } from './refs';
+import { eventInput, gallery, form } from './refs';
 import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
 import debounce from 'lodash.debounce';
 import { error, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
@@ -8,11 +8,11 @@ import { openModal } from './modal';
 import { myPagination } from './pagination.js';
 import { clearModalMarkup } from './create-modal-markup';
 
-
 window.addEventListener('DOMContentLoaded', onLoadPage);
-eventInput.addEventListener('input', debounce(onEventSearch, 1000));
+form.addEventListener('input', debounce(onEventSearch, 1000));
 
-export function renderModal(data) {
+
+function renderModal(data) {
   gallery.addEventListener('click', e => {
     openModal(e, data);
   });
@@ -24,31 +24,26 @@ export const state = {
   classification: 'music',
   country: '',
   code: '',
-
 };
 
 export async function onLoadPage() {
-
   const data = await fetchEvents(state.query, state.page, state.classification, state.country);
   clearGalleryMarkup();
   createGalleryMarkup(data);
   renderModal(data)
+
   const pageSize = data.page.size;
   const totalEl = data.page.totalElements;
   if (totalEl > 1000) {
     myPagination._options.totalItems = 1000 - pageSize;
-  }
-  else {
+  } else {
     myPagination._options.totalItems = totalEl;
   }
   myPagination._options.itemsPerPage = pageSize;
-
-
-
 }
 
-
 export async function onEventSearch(e) {
+  e.preventDefault();
 
   state.query = e.target.value.trim();
   resetPage();
@@ -57,8 +52,11 @@ export async function onEventSearch(e) {
 
     clearGalleryMarkup();
     createGalleryMarkup(data);
-    renderModal(data)
-    if (state.page = 0) {
+    renderModal(data);
+    // gallery.addEventListener('click', e => {
+    //   openModal(e, data);
+    // });
+    if ((state.page = 0)) {
       myPagination.reset();
     }
 
@@ -89,9 +87,7 @@ function resetPage() {
   state.page = 0;
 }
 
-
 // =======================================
-
 
 function incrementPage() {
   state.page++;
@@ -104,6 +100,3 @@ function resetPage() {
 function dicrementPage() {
   state.page--;
 }
-
-
-
