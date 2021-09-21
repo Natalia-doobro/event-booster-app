@@ -1,43 +1,45 @@
 import Pagination from 'tui-pagination';
-//import { pagination } from './refs.js';
-import { state } from './event_search.js';
-import { onLoadPage, loadNextPage, loadPrevPage } from './event_search.js';
-
-
+import { state, onLoadPage } from './event_search.js';
 
 export const container = document.getElementById('tui-pagination-container');
 
-export const myPagination = new Pagination(container,  {
-    // below default value of options
-    // totalItems: 124,
+export const options = {
     totalItems: 500,
-    itemsPerPage: 20,   
-    visiblePages: 7,
+    itemsPerPage: 10,
+    visiblePages: 5,
     page: 1,
     centerAlign: true,
-    
-});
+};
+
+export const myPagination = new Pagination(container, options);
 
 myPagination.on('afterMove', (event) => {
     const currentPage = event.page;
-    console.log(currentPage);
-    
-    
-    
-        if (currentPage === state.page + 1) {
-           loadNextPage();
-        }
-        if (currentPage === state.page - 1) {        
-            loadPrevPage();
-        }
-    
-        else {
-           state.page = `${currentPage}`;  
-            onLoadPage();     
-        }
-    }
-);
 
+
+
+    if (currentPage === state.page + 1) {
+        loadNextPage();
+    }
+    if (currentPage === state.page - 1) {
+        loadPrevPage();
+    }
+
+    else {
+        state.page = `${currentPage}`;
+        onLoadPage();
+    }
+
+});
+
+function incrementPage() {
+    state.page++;
+}
+
+
+function dicrementPage() {
+    state.page--;
+}
 
 
 

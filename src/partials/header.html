@@ -4,6 +4,9 @@
   </div>
   <div class="container header-position">
     <h1 class="header-sleng">FIND BEST EVENTS <br> AROUND THE WORLD</h1>
+    <div id="preloader">
+      <div id="loader"></div>
+    </div>
 
     <form autocomplete="on" novalidate>
       <div class="input-area">
@@ -14,11 +17,11 @@
         </div>
       </div>
 
-      <div class="input-area">
-        <input class="input-container search-country-area" type="text" id="country" name="query_country"
+      <div class="input-area input--position">
+        <input class="input-container search-country-area " type="text" id="country" name="query_country"
           autocomplete="off" placeholder="Choose country" required pattern="^[a-zA-Z]+$">
-        <ul class="countries-list"></ul>
-        <div class="input-area_icons-container">
+        <ul class="countries-list list is-hiden" id="countries-list"></ul>
+        <div class="input-area_icons-container icon--rotate">
           <span class="material-icons input-icons">arrow_drop_down</span>
         </div>
       </div>

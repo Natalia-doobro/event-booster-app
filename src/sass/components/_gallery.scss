@@ -72,6 +72,13 @@
   }
 
   &::before {
+    content: "";
+    width: 100%;
+    height: 84%;
+    position: absolute;
+  }
+
+  &::after {
     content: '';
     display: block;
     position: absolute;
