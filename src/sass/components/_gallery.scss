@@ -62,6 +62,7 @@
 
   &:hover {
     transform: scale(1.1);
+    color: var(--white-color);
     background-color: var(--dark-color);
     cursor: pointer;
     @media screen and (min-width: $tablet) {
@@ -140,7 +141,7 @@
 .event-date {
   font-size: 14px;
   line-height: 1.21;
-  color: var(--white-color);
+  //color: var(--white-color);
   margin-bottom: 5px;
 
   @media screen and (min-width: $tablet) {
@@ -153,7 +154,7 @@
   font-weight: 600;
   font-size: 12px;
   line-height: 1.25;
-  color: var(--white-color);
+  //color: var(--white-color);
 
   @media screen and (min-width: $tablet) {
     font-size: 14px;
