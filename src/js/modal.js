@@ -12,7 +12,7 @@ modalOverlay.addEventListener('click', (e) => {
 
 
 export function openModal(e, data) {
-  if (e.target.nodeName !== '.event-card') {
+  if (e.target.nodeName === 'LI') {
     modal.classList.add('is_open');
     body.classList.add('is_hidden');
     const src = data._embedded.events;
@@ -24,6 +24,7 @@ export function closeModal(el) {
   el.preventDefault();
   modal.classList.remove('is_open');
   body.classList.remove('is_hidden');
+
 }
 export function closeModalByOverlay(e) {
   e.preventDefault();

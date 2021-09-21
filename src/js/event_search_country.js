@@ -2,7 +2,7 @@ import { fetchEvents } from './api_service';
 import { countryInput, eventInputCounry, btnArrow, countryItem} from './refs';
 import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
 import { error, info, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
-import { state } from './event_search';
+import { renderModal, state } from './event_search';
 import countriesList from '../data_countries.json';
 import listCountriesTpl from '../templation/list-countries.hbs';
 import { add, debounce } from 'lodash';
@@ -29,8 +29,8 @@ export async function onCountrytSearch(e) {
         delay: 1000,
         maxTextHeight: null,
       });
-      
-    } 
+
+    }
   } catch (err) {
     clearGalleryMarkup();
     error({

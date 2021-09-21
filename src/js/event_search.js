@@ -2,16 +2,17 @@ import { fetchEvents } from './api_service';
 import { eventInput, gallery } from './refs';
 import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
 import debounce from 'lodash.debounce';
-import { error, info, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
+import { error, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/BrightTheme.css';
-import { openModal} from './modal';
+import { openModal } from './modal';
 import { myPagination } from './pagination.js';
+import { clearModalMarkup } from './create-modal-markup';
 
 
 window.addEventListener('DOMContentLoaded', onLoadPage);
 eventInput.addEventListener('input', debounce(onEventSearch, 1000));
 
-function renderModal(data){
+export function renderModal(data) {
   gallery.addEventListener('click', e => {
     openModal(e, data);
   });
@@ -32,8 +33,6 @@ export async function onLoadPage() {
   clearGalleryMarkup();
   createGalleryMarkup(data);
   renderModal(data)
-
-
   const pageSize = data.page.size;
   const totalEl = data.page.totalElements;
   if (totalEl > 1000) {
@@ -55,12 +54,10 @@ export async function onEventSearch(e) {
   resetPage();
   try {
     const data = await fetchEvents(state.query, state.page, state.classification, state.country);
+
     clearGalleryMarkup();
     createGalleryMarkup(data);
     renderModal(data)
-    // gallery.addEventListener('click', e => {
-    //   openModal(e, data);
-    // });
     if (state.page = 0) {
       myPagination.reset();
     }
