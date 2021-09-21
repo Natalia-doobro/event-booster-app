@@ -38,12 +38,12 @@
   transition: opacity 0.5ms ease-in-out;
 }
 
-.modal_lb {
+.modal_gallery {
   position: absolute;
   padding: 75px 15px 104px;
   width: 272px;
   z-index: 99;
-  top: 60%;
+  top: 70%;
   left: 50%;
   border-radius: 150px 0px;
   transform: translate(-50%, -50%);
@@ -164,9 +164,20 @@
   }
 }
 
+.modal_link_btn {
+  margin-top: 20px;
+}
+
+.modal_link_btn:not(:last-child) {
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 31px;
+  }
+}
+
 .modal_buy_btn {
   position: relative;
-  margin-top: 20px;
   width: 145px;
   height: 40px;
   font-size: 16px;
@@ -177,14 +188,6 @@
   cursor: pointer;
   color: white;
   text-align: center;
-}
-
-.modal_buy_btn:not(:last-child) {
-  margin-bottom: 20px;
-
-  @media screen and (min-width: $desktop) {
-    margin-bottom: 31px;
-  }
 }
 
 .modal_buy_btn:hover {
