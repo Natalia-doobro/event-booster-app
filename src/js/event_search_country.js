@@ -36,11 +36,11 @@ function countryListVisioWindow() {
   // btnArrow.classList.remove('icon--rotate');
 }
 
-// countryItem.addEventListener('click', addTextInput);
+countryItem.addEventListener('click', addTextInput);
 
-// function addTextInput() {
-//   countryInput.value = countryItem.textContent;
-// }
+function addTextInput() {
+  countryInput.value = countryItem.textContent;
+}
 
 countryInput.addEventListener('input', debounce(onCountrytSearch, 1000));
 
