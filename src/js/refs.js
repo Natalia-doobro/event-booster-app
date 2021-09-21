@@ -15,6 +15,8 @@ const refs = {
   prevPagBtn: document.querySelector('.tui-prev'),
   btnArrow: document.querySelector('.icon--rotate'),
   countryItem: document.querySelector('.countries-item'),
+  containnerCountries: document.querySelector('.containner-countries'),
+  inputLineBottom: document.querySelector('add-line'),
 };
 
 export const {
@@ -33,4 +35,6 @@ export const {
   prevPagBtn,
   btnArrow,
   countryItem,
+  containnerCountries,
+  inputLineBottom,
 } = refs;
