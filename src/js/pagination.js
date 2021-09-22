@@ -19,18 +19,21 @@ myPagination.on('afterMove', (event) => {
 
 
     if (currentPage === state.page + 1) {
-        loadNextPage();
+        incrementPage();
+        // loadNextPage();
         onTop()
     }
     if (currentPage === state.page - 1) {
-        loadPrevPage();
-        onTop()
+        dicrementPage();
+        onLoadPage();
+        // loadPrevPage();
+        onTop();
     }
 
     else {
-        state.page = `${currentPage}`;
+        state.page = `${currentPage - 1}`;
         onLoadPage();
-        onTop()
+        onTop();
     }
 
 });

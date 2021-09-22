@@ -82,6 +82,7 @@ select-pure {
   --font-weight: inherit;
   --select-outline: 1px solid #e3e3e3;
   --dropdown-items: 4;
+  --owerflow-y: webkit-scrollbar;
 }
 
 .countries-item {
@@ -120,3 +121,5 @@ select-pure {
 //   height: 43px;
 //   background-color: var(--placeholder-text-color);
 // }
+
+
