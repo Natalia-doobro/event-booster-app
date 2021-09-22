@@ -31,8 +31,9 @@
   &:hover,
   &:focus {
     color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-    border-radius: 10px 0 10px 0;
+    // оставить по желанию либо так либо расскоментировать:)
+    // border: 1px solid var(--accent-color);
+    // border-radius: 10px 0 10px 0;
 
     @media screen and (max-width: $mobile-max) {
     
@@ -62,10 +63,12 @@ strong {
   cursor: default;
 }
 
-.btn-hidden {
+.is-hidden {
   opacity: 0;
 }
 
-.btn-open {
+.is-open {
   opacity: 1;
 }
+
+

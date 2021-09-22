@@ -90,7 +90,7 @@ select-pure {
   --font-weight: inherit;
   --select-outline: none;
   --dropdown-items: 4;
-      
+ //--owerflow-y: webkit-scrollbar;
 
 }
 
@@ -105,8 +105,8 @@ select-pure {
 .label.visiable{
  color: var(--accent-color);
 
-}
 
+ 
 
 
 .countries-item {
@@ -140,3 +140,5 @@ select-pure {
 //   height: 43px;
 //   background-color: var(--placeholder-text-color);
 // }
+
+

@@ -1,7 +1,7 @@
 import { fetchEvents } from './api_service';
-import { countryInput, eventInputCounry, btnArrow, countryItem} from './refs';
+import { countryInput, eventInputCounry, form, btnArrow, countryItem, pagination} from './refs';
 import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
-import { error, info, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
+import { error, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
 import { state } from './event_search';
 import countriesList from '../data_countries.json';
 import listCountriesTpl from '../templation/list-countries.hbs';
@@ -10,9 +10,10 @@ import 'select-pure';
 
 const markupCountryList = listCountriesTpl(countriesList);
 eventInputCounry.insertAdjacentHTML('beforeend', markupCountryList);
-eventInputCounry.addEventListener('change', onCountrytSearch);
+form.addEventListener('change', onCountrytSearch);
 
 export async function onCountrytSearch(e) {
+  e.stopPropagation()
   
   try {
     const data = await fetchEvents(
@@ -29,8 +30,10 @@ export async function onCountrytSearch(e) {
         delay: 1000,
         maxTextHeight: null,
       });
-      
-    } 
+      pagination.classList.remove('is-hidden');
+      pagination.classList.add('is-open'); 
+
+    }
   } catch (err) {
     clearGalleryMarkup();
     error({
@@ -38,6 +41,8 @@ export async function onCountrytSearch(e) {
       delay: 1000,
       maxTextHeight: null,
     });
+    pagination.classList.remove('is-open');
+    pagination.classList.add('is-hidden');
   }
 }
 
