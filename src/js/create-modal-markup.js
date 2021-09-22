@@ -7,5 +7,6 @@ export function createModalMarkup(embedded) {
 }
 
 export function clearModalMarkup() {
-  modalGallery.innerHTML = '';
+  modalGallery.lastChild.previousSibling.innerHTML = '';
+
 }
