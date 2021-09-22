@@ -12,7 +12,6 @@ const markupCountryList = listCountriesTpl(countriesList);
 eventInputCounry.insertAdjacentHTML('beforeend', markupCountryList);
 form.addEventListener('change', onCountrytSearch);
 
-
 export async function onCountrytSearch(e) {
   e.stopPropagation()
   

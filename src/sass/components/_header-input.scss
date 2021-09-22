@@ -32,6 +32,7 @@
 }
 
 .input-area {
+  width: auto;
   display: inline-block;
   position: relative;
 
@@ -43,6 +44,7 @@
       margin-left: 0;
       margin-top: 25px;
     }
+    
   }
 
   .input-area_icons-container {
@@ -51,6 +53,12 @@
     right: 16px;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  .input_arrow_icon{
+    right: -39px;
+    transition: all 0.2s ease-in-out 0s;
+    // transform: rotate(180deg);
   }
 }
 
@@ -67,35 +75,46 @@ select-pure {
   --select-width: 270px;
   --border-radius: 20px;
   --border-width: 0px;
-  --padding: 10px 50px;
+  --padding: 10px 20px;
   --dropdown-z-index: 2;
   --disabled-background-color: rgba(255, 255, 255, 0.2);
-  --disabled-color: #ecf0f1;
+  --disabled-color:var(--list-color);
   --background-color: rgba(255, 255, 255, 0.2);
-  --color: var(--list-color);
-  --hover-background-color: var(--accent-color);
-  --hover-color: #fff;
+  --color:  var(--placeholder-text-color);
+  --hover-background-color: var(--list-color);
+  --hover-color: var(--accent-color);
   --selected-background-color: var(--accent-color);
-  --selected-color: #fff;
+  --selected-color: var(--accent-color);
   --font-size: inherit;
   --font-family: inherit;
   --font-weight: inherit;
-  --select-outline: 1px solid #e3e3e3;
+  --select-outline: none;
   --dropdown-items: 4;
-  --owerflow-y: webkit-scrollbar;
+ //--owerflow-y: webkit-scrollbar;
+
 }
+
+// .countries-list:hover{
+//   .input_arrow_icon{
+//     transform: rotate(180deg);
+   
+//   }
+// }
+ 
+
+.label.visiable{
+ color: var(--accent-color);
+
+
+ 
+
 
 .countries-item {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
   color: var(--list-color);
-  cursor: pointer;
-  display: flex;
-  font-family: var(--font-family, inherit);
-  font-size: inherit;
-  font-weight: inherit;
-  height: var(--select-height, 44px);
+  height: var(--select-height, 40px);
   justify-content: flex-start;
   width: 100%;
 }
