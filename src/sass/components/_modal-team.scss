@@ -4,7 +4,7 @@
   margin: 15px;
   min-width: 230px;
   max-width: 315px;
-  height: 337px;
+  height: 400px;
   width: 100%;
   color: var(--white-color);
   text-align: center;
@@ -157,16 +157,16 @@
     &:after {
       background-color: var(--accent-color);
     }
-  }}
-  .icons-icon {
-    font-size: 32px;
-    color: var(--accent-color);
-   &:hover,
-    &:focus {
-      transform: scale(1.03);
-      box-shadow: 4px -4px 16px 2px v;
-      transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
   }
+}
+.icons-icon {
+  font-size: 32px;
+  color: var(--accent-color);
+  &:hover,
+  &:focus {
+    transform: scale(1.03);
+    box-shadow: 4px -4px 16px 2px v;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
