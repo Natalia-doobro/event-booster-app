@@ -12,8 +12,8 @@ const markupCountryList = listCountriesTpl(countriesList);
 eventInputCounry.insertAdjacentHTML('beforeend', markupCountryList);
 eventInputCounry.addEventListener('change', onCountrytSearch);
 
-
 export async function onCountrytSearch(e) {
+  
   try {
     const data = await fetchEvents(
       state.query,
