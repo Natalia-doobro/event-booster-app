@@ -55,8 +55,6 @@ export async function onEventSearch(e) {
     createGalleryMarkup(data);
     renderModal(data);
 
-
-
     if (resetPage) {
       myPagination.reset();
     }
