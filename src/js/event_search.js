@@ -31,8 +31,6 @@ export async function onLoadPage() {
   clearGalleryMarkup();
   createGalleryMarkup(data);
   renderModal(data);
-  
-
   const pageSize = data.page.size;
   const totalEl = data.page.totalElements;
   if (totalEl > 1000) {
@@ -45,23 +43,20 @@ export async function onLoadPage() {
 
 export async function onEventSearch(e) {
   e.preventDefault();
-
   state.query = e.target.value.trim();
   resetPage();
   try {
     const data = await fetchEvents(state.query, state.page, state.classification, state.country);
-
     clearGalleryMarkup();
     createGalleryMarkup(data);
     renderModal(data);
-    // gallery.addEventListener('click', e => {
-    //   openModal(e, data);
-    // });
-    
+
+
+
     if (resetPage) {
       myPagination.reset();
     }
-    
+
     const pageSize = data.page.size;
     const totalEl = data.page.totalElements;
     myPagination._options.totalItems = totalEl;
@@ -75,7 +70,7 @@ export async function onEventSearch(e) {
       });
 
       pagination.classList.remove('is-hidden');
-      pagination.classList.add('is-open'); 
+      pagination.classList.add('is-open');
     }
   } catch (err) {
     e.target.value = '';

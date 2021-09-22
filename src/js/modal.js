@@ -17,7 +17,9 @@ export function openModal(e, data) {
     body.classList.add('is_hidden');
     const src = data._embedded.events;
     const result = src.filter((el) => el.id === e.target.id);
-    createModalMarkup(result[0]);
+    if (result.length > 0) {
+      createModalMarkup(result[0]);
+    }
   }
 }
 export function closeModal(el) {
