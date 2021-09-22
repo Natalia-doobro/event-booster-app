@@ -1,5 +1,5 @@
 import { fetchEvents } from './api_service';
-import { countryInput, eventInputCounry, form, btnArrow, countryItem} from './refs';
+import { countryInput, eventInputCounry, form, btnArrow, countryItem, pagination} from './refs';
 import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
 import { error, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
 import { state } from './event_search';
@@ -15,6 +15,7 @@ form.addEventListener('change', onCountrytSearch);
 
 export async function onCountrytSearch(e) {
   e.stopPropagation()
+  
   try {
     const data = await fetchEvents(
       state.query,
@@ -30,6 +31,8 @@ export async function onCountrytSearch(e) {
         delay: 1000,
         maxTextHeight: null,
       });
+      pagination.classList.remove('is-hidden');
+      pagination.classList.add('is-open'); 
 
     }
   } catch (err) {
@@ -39,6 +42,8 @@ export async function onCountrytSearch(e) {
       delay: 1000,
       maxTextHeight: null,
     });
+    pagination.classList.remove('is-open');
+    pagination.classList.add('is-hidden');
   }
 }
 

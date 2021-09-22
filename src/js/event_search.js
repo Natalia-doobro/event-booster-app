@@ -1,5 +1,5 @@
 import { fetchEvents } from './api_service';
-import { eventInput, gallery, form } from './refs';
+import { eventInput, gallery, form, pagination } from './refs';
 import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
 import debounce from 'lodash.debounce';
 import { error, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
@@ -9,7 +9,7 @@ import { myPagination } from './pagination.js';
 import { clearModalMarkup } from './create-modal-markup';
 
 window.addEventListener('DOMContentLoaded', onLoadPage);
-form.addEventListener('input', debounce(onEventSearch, 1000));
+eventInput.addEventListener('input', debounce(onEventSearch, 1000));
 
 
 function renderModal(data) {
@@ -30,7 +30,8 @@ export async function onLoadPage() {
   const data = await fetchEvents(state.query, state.page, state.classification, state.country);
   clearGalleryMarkup();
   createGalleryMarkup(data);
-  renderModal(data)
+  renderModal(data);
+  
 
   const pageSize = data.page.size;
   const totalEl = data.page.totalElements;
@@ -56,10 +57,11 @@ export async function onEventSearch(e) {
     // gallery.addEventListener('click', e => {
     //   openModal(e, data);
     // });
-    if ((state.page = 0)) {
+    
+    if (resetPage) {
       myPagination.reset();
     }
-
+    
     const pageSize = data.page.size;
     const totalEl = data.page.totalElements;
     myPagination._options.totalItems = totalEl;
@@ -71,6 +73,9 @@ export async function onEventSearch(e) {
         delay: 1000,
         maxTextHeight: null,
       });
+
+      pagination.classList.remove('is-hidden');
+      pagination.classList.add('is-open'); 
     }
   } catch (err) {
     e.target.value = '';
@@ -80,23 +85,11 @@ export async function onEventSearch(e) {
       delay: 1000,
       maxTextHeight: null,
     });
+    pagination.classList.remove('is-open');
+    pagination.classList.add('is-hidden');
   }
 }
 
 function resetPage() {
   state.page = 0;
-}
-
-// =======================================
-
-function incrementPage() {
-  state.page++;
-}
-
-function resetPage() {
-  state.page = 1;
-}
-
-function dicrementPage() {
-  state.page--;
 }
