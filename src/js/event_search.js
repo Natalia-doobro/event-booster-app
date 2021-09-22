@@ -11,6 +11,10 @@ import { clearModalMarkup } from './create-modal-markup';
 window.addEventListener('DOMContentLoaded', onLoadPage);
 eventInput.addEventListener('input', debounce(onEventSearch, 1000));
 
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+});
+
 
 function renderModal(data) {
   gallery.addEventListener('click', e => {

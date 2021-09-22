@@ -19,6 +19,7 @@ function renderModal(data) {
   });
 }
 
+
 export async function onCountrytSearch(e) {
   e.stopPropagation()
 
