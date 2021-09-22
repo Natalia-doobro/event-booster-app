@@ -62,11 +62,11 @@
 
   &:hover {
     transform: scale(1.1);
-    color: var(--white-color);
-    background-color: var(--dark-color);
     cursor: pointer;
 
     @media screen and (min-width: $tablet) {
+      color: var(--white-color);
+      background-color: var(--dark-color);
       box-shadow: 0.5px 0.5px 0.3px 0.5px var(--accent-color);
       border-radius: 50px 0 40px 0;
     }
