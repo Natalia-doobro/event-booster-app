@@ -7,6 +7,8 @@ export function createModalMarkup(embedded) {
 }
 
 export function clearModalMarkup() {
-  modalGallery.lastChild.previousSibling.innerHTML = '';
+  for (let i = 1; i < modalGallery.children.length; i++) {
+    modalGallery.children[i].innerHTML = '';
+  }
 
 }
