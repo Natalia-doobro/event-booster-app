@@ -65,10 +65,10 @@
     color: var(--white-color);
     background-color: var(--dark-color);
     cursor: pointer;
+    border-radius: 50px 0 40px 0;
 
     @media screen and (min-width: $tablet) {
       box-shadow: 0.5px 0.5px 0.3px 0.5px var(--accent-color);
-      border-radius: 50px 0 40px 0;
     }
 
     .cards-icons {
