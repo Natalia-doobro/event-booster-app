@@ -8,5 +8,5 @@ import './js/team.js';
 import './js/team-modal';
 import './templation/teamModal.hbs';
 import './js/preloader';
-import "../node_modules/select-pure/lib/index";
-// import "./select.styles";
+// import "../node_modules/select-pure/lib/index";
+import '../node_modules/select-pure/lib/index.js';

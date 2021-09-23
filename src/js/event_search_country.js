@@ -24,11 +24,12 @@ export async function onCountrytSearch(e) {
   e.stopPropagation()
 
   try {
+    state.country = eventInputCounry.value;
     const data = await fetchEvents(
       state.query,
       state.page,
       state.classification,
-      eventInputCounry.value,
+      state.country,
     );
     clearGalleryMarkup();
     createGalleryMarkup(data);
