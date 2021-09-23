@@ -2,12 +2,13 @@ import { fetchEvents } from './api_service';
 import { countryInput, eventInputCounry, form, btnArrow, countryItem, pagination, gallery } from './refs';
 import { clearGalleryMarkup, createGalleryMarkup } from './create-markup';
 import { error, success } from '../../node_modules/@pnotify/core/dist/PNotify.js';
-import { state } from './event_search';
+import { state, resetPage, onLoadPage } from './event_search';
 import countriesList from '../data_countries.json';
 import listCountriesTpl from '../templation/list-countries.hbs';
 import { add, debounce } from 'lodash';
 import 'select-pure';
 import { openModal } from './modal';
+import { myPagination } from './pagination.js';
 
 const markupCountryList = listCountriesTpl(countriesList);
 eventInputCounry.insertAdjacentHTML('beforeend', markupCountryList);
@@ -21,7 +22,10 @@ function renderModal(data) {
 
 
 export async function onCountrytSearch(e) {
-  e.stopPropagation()
+  eventInputCounry.value,
+  e.stopPropagation();
+  e.preventDefault();
+  resetPage();
 
   try {
     const data = await fetchEvents(
@@ -33,6 +37,16 @@ export async function onCountrytSearch(e) {
     clearGalleryMarkup();
     createGalleryMarkup(data);
     renderModal(data)
+
+    if (resetPage) {
+      myPagination.reset();
+    }
+    console.log(myPagination);
+    const pageSize = data.page.size;
+    const totalEl = data.page.totalElements;
+    myPagination._options.totalItems = totalEl;
+    myPagination._options.itemsPerPage = pageSize;
+
     if (data._embedded.events.length > 1 && e.target.value.length >= 2) {
       success({
         text: `Congratulations! Events for your request were found`,

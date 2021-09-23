@@ -31,6 +31,7 @@ export const state = {
 };
 
 export async function onLoadPage() {
+  
   const data = await fetchEvents(state.query, state.page, state.classification, state.country);
   clearGalleryMarkup();
   createGalleryMarkup(data);
@@ -87,6 +88,6 @@ export async function onEventSearch(e) {
   }
 }
 
-function resetPage() {
+export function resetPage() {
   state.page = 0;
 }

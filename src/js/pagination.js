@@ -19,14 +19,12 @@ myPagination.on('afterMove', (event) => {
 
 
     if (currentPage === state.page + 1) {
-        incrementPage();
-        // loadNextPage();
+        incrementPage();      
         onTop()
     }
     if (currentPage === state.page - 1) {
         dicrementPage();
         onLoadPage();
-        // loadPrevPage();
         onTop();
     }
 

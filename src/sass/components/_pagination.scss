@@ -64,10 +64,12 @@ strong {
 }
 
 .is-hidden {
+  visibility: hidden;
   opacity: 0;
 }
 
 .is-open {
+  visibility: visible;
   opacity: 1;
 }
 
