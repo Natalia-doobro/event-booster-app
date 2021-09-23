@@ -2,10 +2,11 @@
   width: 270px;
   height: 40px;
   padding: 10px 30px;
+
   border: none;
   color: #777777;
   background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
+  // backdrop-filter: blur(20px);
   border-radius: 20px;
   
 
@@ -31,6 +32,7 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   text-shadow: 0 0 5px;
+  z-index: 10;
 }
 
 .input-area {
