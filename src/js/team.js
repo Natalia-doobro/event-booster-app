@@ -13,7 +13,7 @@ import img10 from '../images/team/Dmitriy.jpg';
 export default [
   {
     fullName: 'Natalia Dobrovolskaya',
-    position: 'Team lead команды. Разметка и стили футера. Плюшка Пушка-ракета "вверх".',
+    position: 'Team lead команды. Разметка и стили футера. Плюшка: Пушка-ракета "вверх".',
     photo: `${img1}`,
     Slack: '#',
     facebook: 'https://www.facebook.com/profile.php?id=100012840857670',
@@ -37,7 +37,7 @@ export default [
   },
   {
     fullName: 'Alina Kasianova',
-    position: 'Стили контейнера для карточек и одной карточки события, анимация и плюшки на карточке событий, favicon.',
+    position: 'Стили и разметка контейнера для карточек и стили карточки , анимация и плюшки на карточке событий, favicon.',
     photo: `${img4}`,
     Slack: '#',
     facebook: '',
@@ -61,7 +61,7 @@ export default [
   },
   {
     fullName: 'Yana Yermak',
-    position: "Разметка контейнера для карточек и одной карточки события. Разметка, стилизация, анимация модального окна команды. Плюшки.",
+    position: "Разметка одной карточки события. Разметка, стилизация, анимация модального окна команды. Плюшки.",
     photo: `${img7}`,
     Slack: '#',
     facebook:'https://www.facebook.com/profile.php?id=100003188104881',
@@ -69,7 +69,7 @@ export default [
   },
   {
     fullName: 'Ihor Rudniev',
-    position: "Логика выпадашки с выбором страны, стилезация строки выбора страны. Логика строки поиска по названию страны.",
+    position: "Логика выпадашки с выбором страны, стилизация строки выбора страны. Логика строки поиска по названию страны.",
     photo: `${img8}`,
     Slack: '',
     facebook: 'https://www.facebook.com/IhorRudniev',
@@ -77,7 +77,7 @@ export default [
   },
   {
     fullName: 'Naira Kazeian',
-    position: "Подготовка для работы проэкта : базовые стилт, подключение шрифтов, предварительная разметка рабочей области. Стилезация и логика переключателя темы.",
+    position: "Подготовка для работы проэкта : базовые стили, подключение шрифтов, предварительная разметка рабочей области. Стилизация и логика переключателя темы.",
     photo: `${img9}`,
     Slack: '#',
     facebook: 'https://www.facebook.com/naira.kazeyan',
