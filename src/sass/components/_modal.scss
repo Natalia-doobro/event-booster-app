@@ -1,6 +1,7 @@
 .modal {
   position: fixed;
   top: 0;
+  display: flex;
   left: 0;
   width: 100%;
   height: 100%;
@@ -25,15 +26,15 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: var(--overlay-color);
   backdrop-filter: blur(3px);
   transition: 0.5ms ease-in-out;
 }
 
 .modal_gallery {
-  position: absolute;
+  position: fixed;
   width: 272px;
   height: 915px;
   z-index: 99;
@@ -48,8 +49,8 @@
     height: 80%;
   }
   @media screen and (min-width: $tablet) {
-    width: 55%;
-    height: 55%;
+    width: 60%;
+    height: 85%;
     border-radius: 300px 0;
   }
   @media screen and (min-width: $desktop) {
@@ -89,13 +90,12 @@
 .modal_wrap {
   display: flex;
   justify-content: space-around;
-  padding-bottom: 4%;
   width: 90%;
+  flex-wrap: wrap;
   margin: 0 auto;
 
   @media screen and (min-width: $mobile) {
     width: 100%;
-    padding-bottom: 6%;
   }
 
   @media screen and (min-width: $tablet) {
@@ -111,13 +111,11 @@
   height: 40px;
   font-size: 16px;
   font-weight: 500;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, 0);
   border: 2px solid var(--button);
   border-radius: 5px;
   background-color: inherit;
   color: var(--button);
+  margin-top: 20px;
 
   @media screen and (min-width: $tablet) {
     width: 255px;
@@ -228,10 +226,15 @@
   width: 102px;
   height: 102px;
   display: block;
-  margin: 1% auto 5%;
+  margin: 1% auto 4%;
   border-radius: 50%;
   object-fit: cover;
 
+  @media screen and (min-width: $mobile) {
+    width: 70px;
+    height: 70px;
+    margin: 3% auto 4%;
+  }
 
   @media screen and (min-width: $tablet) {
     width: 70px;
@@ -261,7 +264,7 @@
   }
   @media screen and (min-width: $tablet) {
     width: 35%;
-    height: 35vh;
+    height: 47vh;
   }
   @media screen and (min-width: $desktop) {
     width: 40%;
