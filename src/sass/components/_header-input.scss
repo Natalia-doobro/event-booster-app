@@ -48,7 +48,7 @@
   .input-area_icons-container {
     position: absolute;
     display: flex;
-    right: 16px;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -73,7 +73,7 @@ select-pure {
   --select-width: 270px;
   --border-radius: 20px;
   --border-width: 0px;
-  --padding: 10px 50px;
+  --padding: 10px 40px;
   --dropdown-z-index: 2;
   --disabled-background-color: rgba(255, 255, 255, 0.2);
   --disabled-color: var(--list-color);
@@ -87,7 +87,6 @@ select-pure {
   --font-family: inherit;
   --font-weight: inherit;
   --select-outline: none;
-  --dropdown-items: 4;
 }
 
 .countries-item {
