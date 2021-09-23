@@ -27,6 +27,11 @@ body {
   line-height: 1.25;
   color: var(--white-color);
   background-color: var(--dark-color);
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   @media screen and (max-width: $tablet) {
     font-size: 14px;
     line-height: 1.21;
