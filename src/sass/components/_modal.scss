@@ -48,9 +48,14 @@
     width: 85%;
     height: 80%;
   }
-  @media screen and (min-width: $tablet) {
-    width: 60%;
-    height: 85%;
+  @media screen and (min-width: $tablet) and (orientation: portrait){
+    width: 70%;
+    height: 75%;
+    border-radius: 300px 0;
+  }
+  @media screen and (min-width: $tablet) and (orientation: landscape){
+    width: 75%;
+    height: 90%;
     border-radius: 300px 0;
   }
   @media screen and (min-width: $desktop) {
@@ -236,9 +241,10 @@
     margin: 3% auto 4%;
   }
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) and (orientation: portrait){
     width: 70px;
     height: 70px;
+    margin: 5% auto 8%;
   }
   @media screen and (min-width: $desktop) {
     width: 132px;
@@ -259,12 +265,12 @@
 }
 
 .modal_img {
-  @media screen and (max-width: $mobile-max) {
+  @media screen and (max-width: $mobile-max)  {
     display: none;
   }
-  @media screen and (min-width: $tablet) {
-    width: 35%;
-    height: 47vh;
+  @media screen and (min-width: $tablet) and (orientation: portrait) {
+    width: 38%;
+    height: 40vh;
   }
   @media screen and (min-width: $desktop) {
     width: 40%;
