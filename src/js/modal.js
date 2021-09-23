@@ -34,13 +34,11 @@ export function closeModal(el) {
   i = 0;
   modal.classList.remove('is_open');
   body.classList.remove('is_hidden');
-  const closeButton = () => {
-    document.querySelector('.modal_button');
-  };
-
 }
-export function closeModalByOverlay(e) {
-  e.preventDefault();
+
+export function closeModalByOverlay(el) {
+  el.preventDefault();
+  i = 0;
   modal.classList.remove('is_open');
   body.classList.remove('is_hidden');
 }

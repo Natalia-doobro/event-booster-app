@@ -6,60 +6,55 @@
   height: 100%;
   opacity: 0;
   pointer-events: none;
-  transition: 0.5ms ease-in-out;
+  transition: 0.8s ease-in-out;
   overflow-y: scroll;
   z-index: 11;
-  animation: modal 2s linear;
+  transform: scale(0);
 }
 
-@keyframes modal {
-  0% {
-    top: -1000px;
-  }
-  100% {
-    top: 0px;
-  }
-}
 
 .modal.is_open {
   opacity: 1;
   pointer-events: initial;
+  transform: scale(1);
+  transition: 0.8s ease-in-out;
+
 }
 
 .modal_overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: var(--overlay-color);
   backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  transition: opacity 0.5ms ease-in-out;
+  transition: 0.5ms ease-in-out;
 }
 
 .modal_gallery {
   position: absolute;
-  padding: 75px 15px 104px;
   width: 272px;
   height: 915px;
   z-index: 99;
-  top: 70%;
+  top: 50%;
   left: 50%;
-  border-radius: 150px 0px;
+  border-radius: 150px 0;
   transform: translate(-50%, -50%);
   background-color: var(--modal-bg-color);
 
+  @media screen and (min-width: $mobile) {
+    width: 85%;
+    height: 80%;
+  }
   @media screen and (min-width: $tablet) {
-    width: 595px;
-    height: 831px;
-    border-radius: 300px 0px;
-    padding: 28px 17px 56px 50px;
+    width: 55%;
+    height: 55%;
+    border-radius: 300px 0;
   }
   @media screen and (min-width: $desktop) {
-    width: 930px;
-    height: 1023px;
-    padding: 62px 30px 62px 30px;
+    width: 55%;
+    height: 95%;
   }
 }
 
@@ -93,11 +88,21 @@
 
 .modal_wrap {
   display: flex;
-  align-content: space-around;
-  padding-bottom: 25px;
+  justify-content: space-around;
+  padding-bottom: 4%;
+  width: 90%;
+  margin: 0 auto;
+
+  @media screen and (min-width: $mobile) {
+    width: 100%;
+    padding-bottom: 6%;
+  }
 
   @media screen and (min-width: $tablet) {
-    padding-bottom: 45px;
+    width: 85%;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 90%;
   }
 }
 
@@ -124,15 +129,15 @@
 }
 
 .modal-title {
-  margin-bottom: 5px;
+  margin-bottom: 2%;
   color: var(--accent-color);
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.2;
 
   @media screen and (min-width: $desktop) {
-    font-size: 24px;
-    margin-bottom: 7px;
+    font-size: 22px;
+    margin-bottom: 2%;
   }
 }
 
@@ -143,16 +148,17 @@
   line-height: 1.22;
 
   @media screen and (min-width: $desktop) {
-    font-size: 18px;
+    font-size: 15px;
   }
 }
 
 .modal_text.info {
   position: relative;
-  overflow: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
-  height: 62px;
+  height: 38px;
   word-wrap: break-word;
+  border-radius: 5px;
 }
 
 .modal_text.wrap_price {
@@ -161,22 +167,22 @@
 }
 
 .modal-container:not(:last-child) {
-  margin-bottom: 10px;
+  margin-bottom: 3%;
 
   @media screen and (min-width: $desktop) {
-    margin-bottom: 20px;
+    margin-bottom: 3%;
   }
 }
 
 .modal_link_btn {
-  margin-top: 20px;
+  margin-top: 4%;
 }
 
 .modal_link_btn:not(:last-child) {
-  margin-bottom: 20px;
+  margin-bottom: 5%;
 
   @media screen and (min-width: $desktop) {
-    margin-bottom: 31px;
+    margin-bottom: 5%;
   }
 }
 
@@ -200,21 +206,21 @@
 
 .modal_content {
   z-index: 11;
-  margin-left: auto;
-  margin-right: auto;
   width: 243px;
-  display: block;
+  display: flex;
+  flex-direction: column;
 
-  @media screen and (max-width: $mobile-max) {
+  @media screen and (min-width: $mobile) {
     text-align: center;
+    width: 78%;
   }
   @media screen and (min-width: $tablet) {
-    width: 265px;
-    margin-left: 15px;
+    text-align: inherit;
+    width: 40%;
   }
   @media screen and (min-width: $desktop) {
-    width: 450px;
-    margin-left: 30px;
+    width: 38%;
+    text-align: inherit;
   }
 }
 
@@ -222,17 +228,16 @@
   width: 102px;
   height: 102px;
   display: block;
-  margin: 0px auto 18px;
+  margin: 1% auto 5%;
   border-radius: 50%;
   object-fit: cover;
 
+
   @media screen and (min-width: $tablet) {
-    margin: 0px auto 43px;
     width: 70px;
     height: 70px;
   }
   @media screen and (min-width: $desktop) {
-    margin: 0px auto 41px;
     width: 132px;
     height: 132px;
   }
@@ -251,18 +256,16 @@
 }
 
 .modal_img {
-  margin-right: 30px;
-
   @media screen and (max-width: $mobile-max) {
     display: none;
   }
   @media screen and (min-width: $tablet) {
-    width: 233px;
-    height: 416px;
+    width: 35%;
+    height: 35vh;
   }
   @media screen and (min-width: $desktop) {
-    width: 360px;
-    height: 641px;
+    width: 40%;
+    height: 60vh;
   }
 }
 
